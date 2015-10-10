@@ -1,0 +1,26 @@
+<template name="nextEvent">
+	<div class="component-next-event">
+		{{#if isPlanNotThere}}
+			{{#if isBuilder}}
+				Create Form
+				{{> newRelease}}
+			{{else}}
+				{{> sectionHero pageTitle="No Planning Event" pageTitleCaption="Come back later"}}
+			{{/if}}
+		{{/if}}
+		{{#if isPlanNotStarted}}
+			{{> sectionHero pageTitle="Next Event in {{_dateLeft}}" pageTitleCaption="Come back later"}}
+		{{/if}}
+		{{#if isPlanning}}
+			2x2 matrixs
+			{{> planning}}
+		{{/if}}
+		{{#if isBuilding}}
+			{{#if isBuilder}}
+				2x2 matrixs and summary and others
+			{{else}}
+				2x2 matrixs and summary
+			{{/if}}
+		{{/if}}
+	</div>
+</template>

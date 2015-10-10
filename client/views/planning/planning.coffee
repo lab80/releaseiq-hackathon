@@ -27,19 +27,36 @@ Template.planning.onCreated(->
   Telescope.subsManager.subscribe("iq_releases")
 )
 
+_isPlanThere = ->
+  IQ.Releases.find({state: IQ.Releases.STATE.PLANNING}).count() > 0
+
+_isPlanning = ->
+  release = IQ.Releases.findOne({state: IQ.Releases.STATE.PLANNING})
+  release[IQ.Releases.STATE.PLANNING].start < new Date()
+
+_isBuilding = -> IQ.Releases.find({state: IQ.Releases.STATE.BUILDING}).count() > 0
+
 Template.planning.helpers(
   _ready: ->
     Telescope.subsManager.ready()
 
   _heroData: -> Fixtures.getData("sectionHero", "Planning")
 
-  _isPlanThere: -> IQ.Releases.find({state: IQ.Releases.STATE.PLANNING}).count() > 0
+  _status: ->
+    if not _isPlanThere()
+      'noPlan'
+    else if _isPlanThere() and not _isPlanning()
+      'planNotStarted'
+    else if _isPlanning()
+      'planning'
+    else if _isBuilding()
+      'building'
 
-  _isPlanning: ->
-    release = IQ.Releases.findOne({state: IQ.Releases.STATE.PLANNING})
-    release[IQ.Releases.STATE.PLANNING].start < new Date()
+  _isPlanThere: -> _isPlanThere()
+  
+  _isPlanning: -> _isPlanning()
 
-  _isBuilding: -> IQ.Releases.find({state: IQ.Releases.STATE.BUILDING}).count() > 0
+  _isBuilding: -> _isBuilding()
 
   _isBuilder: -> _isBuilder()
 
