@@ -19,6 +19,7 @@ Template.planning.helpers(
   # _arguments: ->
   #   FlowRouter.watchPathChange()
   #   {terms: _terms()}
+  _heroData: -> Fixtures.getData("sectionHero", "Normal")
 
   _featureData: ->
     #Fixtures.getData("featureGrid", "Normal")
