@@ -1,9 +1,21 @@
 <template name="planning">
-  <div class="page-width">
-    {{> sectionHero _heroData}}
-  </div>
-  <div class="two-by-two">
-    {{> featureGrid _featureData}}
-    {{> pokerCards _cardsData}}
-  </div>
+  {{#if _isBuilding}}
+    <div class="page-width">
+      {{> sectionHero _heroData}}
+    </div>
+    <div class="two-by-two">
+      {{> featureGrid _featureData}}
+      {{> pokerCards _cardsData}}
+    </div>
+  {{else}}
+    {{#if _isPlanning}}
+      Event will start in X days
+    {{else}}
+      {{#if _isBuilder}}
+        {{> newRelease}}
+      {{else}}
+        Come back
+      {{/if}}
+    {{/if}}
+  {{/if}}
 </template>

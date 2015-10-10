@@ -16,10 +16,12 @@ Meteor.methods(
       features: []
       description: ""
 
+    state = if build.start < new Date() then IQ.Releases.STATE.BUILDING else IQ.Releases.STATE.PLANNING
+
     release =
       name: formData.name
       createdAt: new Date(),
-      state: IQ.Releases.STATE.PLANNING
+      state: state
       planning: planning,
       build: build
 
