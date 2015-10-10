@@ -30,25 +30,42 @@
 }
 
 .two-by-two {
-  height: 400px; // should we dynamically change this?
+  height: 500px;
   background-color: yellow;
+  position: relative;
 }
 
+.component-poker-card-carousel {
+  position: absolute;
+  left: 50%;
+  height: 220px;
+  bottom: 50px;
+  width: 400px;
+  margin-left: -200px;
+  background-color: lightgrey;
+  z-index: 1;
+}
 
-//.template-planning {
-  // .two-by-two {
-  //   .horizontal-flush;
-  //   height: 600px;
-  //   margin-bottom: 200px;
-  //   background-color: yellow;
-  // }
-  // .component-poker-card-carousel {
-  //   position: absolute;
-  //   left: 50%;
-  //   bottom: -100px;
-  //   width: 600px;
-  //   height: 220px;
-  //   margin-left: -300px;
-  //   background: rgba(0, 0, 0, 0.3);
-  // }
-//}
+// .two-by-two {
+//   height: 400px; // should we dynamically change this?
+//   background-color: yellow;
+// }
+
+// ??? Should I keep the styles below ???
+
+// .two-by-two {
+//   .horizontal-flush;
+//   .page-width;
+//   height: 600px;
+//   margin-bottom: 200px;
+//   background-color: yellow;
+// }
+// .component-poker-card-carousel {
+//   position: absolute;
+//   left: 50%;
+//   bottom: -100px;
+//   width: 600px;
+//   height: 220px;
+//   margin-left: -300px;
+//   background: rgba(0, 0, 0, 0.3);
+// }

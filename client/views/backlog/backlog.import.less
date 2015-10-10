@@ -1,3 +1,48 @@
-.foo-backlog {
-	color: purple;
+.template-backlog {
+  .posts-list {
+    max-width: 900px;
+    margin: 0 auto 6rem auto;
+    padding-top: 2rem;
+    border-top: 1px solid @grey3;
+    .post {
+      margin-bottom: 1.5rem;
+      padding: 1rem 0 1rem 1rem;
+      border-radius: 0.8rem;
+      border: none;
+      cursor: pointer;
+      @media @desktop {
+        padding: 2rem 0 2rem 2rem;
+      }
+      &:hover {
+        background-color: @grey2;
+        .post-title, .upvote-link {
+          color: @grey10 !important;
+        }
+      }
+    }
+    .post-vote .vote-actions {
+      border: none;
+      .upvote-link {
+        color: @grey8;
+        &:hover {
+          color: @brand-pink;
+        }
+      }
+      .fa-fw {
+        width: 2rem;
+        font-size: 1.8rem;
+      }
+    }
+    .post-title {
+      .page-h3;
+    }
+    .post-rank span {
+      color: @grey4;
+      font-size: 2.4rem;
+    }
+    .post-actions .icon {
+      border-color: @brand-blue;
+      color: @brand-blue;
+    }
+  }
 }

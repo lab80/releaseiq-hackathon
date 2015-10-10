@@ -1,4 +1,7 @@
 Template.backlog_posts_list.helpers({
+  _heroData: function() {
+    return Fixtures.getData("sectionHero", "Backlog");
+  },
   customTemplate: function () {
     var currentView = FlowRouter.getQueryParam("view") || Settings.get("defaultView", "top");
     var currentMenuItem = _.findWhere(Telescope.menuItems.viewsMenu, {label: currentView});

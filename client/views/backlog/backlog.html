@@ -1,11 +1,14 @@
 <template name="backlog_posts_list">
-  <div class="main-posts-list">
-    {{> modules zone="postsListTop"}}
-    {{#if customTemplate}}
-      {{> Template.dynamic template=customTemplate data=arguments}}
-    {{else}}
-      {{> posts_list_controller arguments}}
-    {{/if}}
-    {{> modules zone="postsListBottom"}}
+  <div class="page-width">
+    {{> sectionHero _heroData}}
+    <div class="main-posts-list">
+      {{> modules zone="postsListTop"}}
+      {{#if customTemplate}}
+        {{> Template.dynamic template=customTemplate data=arguments}}
+      {{else}}
+        {{> posts_list_controller arguments}}
+      {{/if}}
+      {{> modules zone="postsListBottom"}}
+    </div>
   </div>
 </template>

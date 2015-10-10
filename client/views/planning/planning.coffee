@@ -26,6 +26,8 @@ Template.planning.helpers(
   _ready: ->
     Telescope.subsManager.ready()
 
+  _heroData: -> Fixtures.getData("sectionHero", "Planning")
+
   _isPlanning: -> IQ.Releases.find({state: IQ.Releases.STATE.PLANNING}).count() > 0
 
   _isBuilding: -> IQ.Releases.find({state: IQ.Releases.STATE.BUILDING}).count() > 0
@@ -33,8 +35,6 @@ Template.planning.helpers(
   _isBuilder: ->
     user = Meteor.user()
     (user and user.isAdmin) == true
-
-  _heroData: -> Fixtures.getData("sectionHero", "Normal")
 
   _featureData: ->
     #Fixtures.getData("featureGrid", "Normal")
