@@ -54,7 +54,8 @@ IQ.score = (collection, costOrBenefit, itemId, score) ->
   costOrBenefits = collection.findOne(itemId, {fields: {"#{costOrBenefit}": 1}})[costOrBenefit]
   scores = _.pluck(costOrBenefits, 'score')
   votePowers = _.pluck(costOrBenefits, 'votePower')
-  aggregatedScore = _.reduce(_.zip(scores, votePowers), ((memo, pair) -> memo + pair[0]*pair[1]), 0)
+  votePowerSum = _.reduce(votePowers, ((memo, num) -> memo + num, 0))
+  aggregatedScore = _.reduce(_.zip(scores, votePowers), ((memo, pair) -> memo + pair[0]*pair[1]), 0) / votePowerSum
   result = collection.update(
     {_id: item && item._id},
     {$set: {"#{ESTIMATES_TO_AGGREGATES[costOrBenefit]}": aggregatedScore}}
