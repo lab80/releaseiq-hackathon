@@ -1,6 +1,12 @@
 @IQ or= {}
 
 Posts.attachSchema(new SimpleSchema(
+  aggregateCost:
+    type: Number
+    decimal: true
+  aggregateBenefit:
+    type: Number
+    decimal: true
   costEstimates:
     type: [Object]
     blackbox: true

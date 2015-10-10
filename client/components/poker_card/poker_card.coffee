@@ -3,9 +3,20 @@ Template.pokerCard.helpers(
     console.log "ready", Telescope.subsManager.ready()
     Telescope.subsManager.ready()
 )
+Template.pokerCard.events(
+  "slideStop .js-cost-input": (event, template) ->
+    console.log "est cost", event.value
+    if template.data._id
+      Meteor.call("estimateCost", template.data._id, event.value)
+
+  "slideStop .js-benefit-input": (event, template) ->
+    console.log "est benefit", event.value
+    if template.data._id
+      Meteor.call("estimateBenefit", template.data._id, event.value)
+)
 
 _setValue = ($what, value) ->
-  $what.slider(min: 0, max: 5, value: value, tooltip: "hide")
+  $what.slider(min: 1, max: 5, value: value, tooltip: "hide")
 
 Template.pokerCard.onRendered(->
   self = this
@@ -23,8 +34,8 @@ Template.pokerCard.onRendered(->
 )
 
 Template.pokerCards.events(
-  "click .js-left": (event, template) -> template.$(".carousel").carousel("prev")
-  "click .js-right": (event, template) -> template.$(".carousel").carousel("next")
+  "click .js-left": (event, template) -> template.$(".js-carousel").carousel("prev")
+  "click .js-right": (event, template) -> template.$(".js-carousel").carousel("next")
 )
 
 Template.pokerCards.helpers(
@@ -54,10 +65,10 @@ _cards = (isBuilder) -> _.map(_.range(5), (idx) ->
 )
 
 Fixtures.addFixture("pokerCards", ""
-  userLoaded:
+  UserLoaded:
     selected: 3
     pokerCards: _cards(false)
-  builderLoaded:
+  BuilderLoaded:
     selected: 3
     pokerCards: _cards(true)
 )

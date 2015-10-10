@@ -25,6 +25,14 @@
 		color: @grey6;
 		font-weight: 600;
 		text-transform: uppercase;
+		&:hover {
+			background-color: transparent;
+			color: @brand-pink;
+		}
+		&:focus, &.active {
+			background-color: transparent;
+			color: @brand-blue;
+		}
 	}
 	.mobile-only {
 		.mobile-menu-button {
