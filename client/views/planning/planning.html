@@ -6,13 +6,12 @@
           [Join Now] Planning event
         </div>
         <div class="header-right">
-          Ending in 16h:09:45
+          {{> countdownTimer endingTime}}
         </div>
       </div>
     </div>
 
     <div class="planning-subheader page-width">
-
       <!-- {{> sectionHero _heroData}} -->
 
       <div class="planning-release-name">
@@ -26,9 +25,9 @@
 
     <div class="two-by-two">
       {{> featureGrid _featureData}}
-      <div class="component-poker-card-carousel">
-        {{> pokerCards _cardsData}}
-      </div>
+      <!-- <div class="component-poker-card-carousel"> -->
+      {{> pokerCards _cardsData}}
+      <!-- </div> -->
     </div>
   </div>
 
@@ -43,39 +42,6 @@
       {{> pokerCards _cardsData}}
     </div>
   {{else}}
-    <div class="page-width">
-      {{#if _isPlanning}}
-        {{> sectionHero
-          pageTitle="Next Event in FIXME Days"
-          pageTitleCaption="1 planning event scheduled"
-        }}
-        <div class="scheduled-event-row">
-          <h2 class="page-h2">FIXME: Release Name</h2>
-          <h3 class="page-h3">FIXME: Release Description</h3>
-          <div class="row metadata">
-            <div class="col col-xs-12 col-sm-4">
-              <h4 class="page-h4">Event Start</h4>
-              <p class="page-text">FIXME</p>
-            </div>
-            <div class="col col-xs-12 col-sm-4">
-              <h4 class="page-h4">Event End</h4>
-              <p class="page-text">FIXME</p>
-            </div>
-            <div class="col col-xs-12 col-sm-4">
-              <h4 class="page-h4">Event Candidates</h4>
-              <p class="page-text">FIXME</p>
-            </div>
-          </div>
-        </div>
-      {{else}}
-        {{#if _isBuilder}}
-          {{> newRelease}}
-        {{else}}
-          {{> sectionHero
-            pageTitle="No Event Scheduled"
-            pageTitleCaption="Contact us if you have questions"
-          }}
-        {{/if}}
     {{#if _isBuilding}}
       WE'RE BUILDING NOW!
     {{else}}

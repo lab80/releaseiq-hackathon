@@ -1,34 +1,49 @@
 <template name="pokerCard">
   <div class="component-poker-card">
     {{#if featureName}}
-      {{featureName}}<br/>
+      <div class="poker-feature-name">{{featureName}}</div>
       {{#if isBuilder}}
-      cost: <input class="js-cost-input slider-input" style="display: none;" type="text"/><br/>
+        <div class="poker-feature-cost">
+          cost: <input class="js-cost-input slider-input" type="text"/>
+        </div>
+        <div class="poker-feature-benefit">
+          benefit: <input class="js-benefit-input slider-input" type="text"/>
+        </div>
+      {{else}}
+        <div class="poker-feature-benefit">
+          benefit: <input class="js-benefit-input slider-input" type="text"/>
+        </div>
       {{/if}}
-      benefit: <input class="js-benefit-input slider-input" style="display: none;" type="text"/><br/>
     {{else}}
-      Loading?
+      Loading...
     {{/if}}
   </div>
 </template>
 
-
 <template name="pokerCards">
-  <div class="component-poker-card-carousel js-carousel slide" data-ride="carousel" data-interval="false">
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      {{#each card in pokerCards}}
+  <div id="poker-carousel" class="component-poker-card-carousel carousel slide" data-ride="carousel">
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        first feature
+        feature slider container
+      </div>
+      <div class="item">
+        second feature
+      </div>
+
+      <!-- FIXME: uncomment it once we have the feature data -->
+      <!-- {{#each card in pokerCards}}
         <div class="item {{#if _isSelected @index}}active{{else}}inactive{{/if}}">
           {{> pokerCard card}}
         </div>
-      {{/each}}
+      {{/each}} -->
     </div>
-    <!-- Controls -->
-    <a class="js-left left carousel-control" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
+
+    <a class="left carousel-control" href="#poker-carousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
     </a>
-    <a class="js-right right carousel-control" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
+    <a class="right carousel-control" href="#poker-carousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
     </a>
-  </div> <!-- Carousel -->
+  </div>
 </template>

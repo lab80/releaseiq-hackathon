@@ -1,13 +1,30 @@
-.component-poker-card-carousel {
+#poker-carousel {
+	border-radius: 8px;
+	background-color: white;
+	box-shadow: 0 0 50px #333;
+
 	.carousel-control {
 		.middle;
 		position: absolute;
 		bottom: auto;
-		width: 10%;
-		height: 100px;
-		background-color: black;
+		width: 30px;
+		height: 30px;
+		background-color: transparent;
+		color: white;
 		cursor: pointer;
-		.transition(opacity, 0.3s, ease);
+		background-image: none;
+	}
+
+	.right.carousel-control {
+		margin-right: -50px;
+	}
+
+	.carousel-control .glyphicon {
+		font-size: 20px;
+	}
+
+	.left.carousel-control {
+		margin-left: -50px;
 	}
 }
 

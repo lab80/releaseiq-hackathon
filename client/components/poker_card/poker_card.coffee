@@ -33,10 +33,10 @@ Template.pokerCard.onRendered(->
   #)
 )
 
-Template.pokerCards.events(
-  "click .js-left": (event, template) -> template.$(".js-carousel").carousel("prev")
-  "click .js-right": (event, template) -> template.$(".js-carousel").carousel("next")
-)
+# Template.pokerCards.events(
+#   "click .js-left": (event, template) -> template.$(".js-carousel").carousel("prev")
+#   "click .js-right": (event, template) -> template.$(".js-carousel").carousel("next")
+# )
 
 Template.pokerCards.helpers(
   _isSelected: (idx) ->
