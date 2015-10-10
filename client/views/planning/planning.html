@@ -12,25 +12,31 @@
     </div>
 
     <div class="planning-subheader page-width">
+
+      <!-- {{> sectionHero _heroData}} -->
+
       <div class="planning-release-name">
         Hello Money "Firecat"
       </div>
+
       <div class="planning-subtext">
         Prioritize feature candidates for next release
       </div>
     </div>
 
     <div class="two-by-two">
-      <div class="component-poker-card-carousel"></div>
+      {{> featureGrid _featureData}}
+      <div class="component-poker-card-carousel">
+        {{> pokerCards _cardsData}}
+      </div>
     </div>
-
   </div>
 
 <!-- FIXME: will integrate after styling a little -->
 <!-- 
   {{#if _isBuilding}}
     <div class="page-width">
-      {{> sectionHero _heroData}}9
+      {{> sectionHero _heroData}}
     </div>
     <div class="two-by-two">
       {{> featureGrid _featureData}}
