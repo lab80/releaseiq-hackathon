@@ -3,13 +3,32 @@
     {{#if featureName}}
       {{featureName}}<br/>
       {{#if isBuilder}}
-      cost:
-      <input class="js-cost-input slider-input" style="display: none;" type="text"/><br/>
+      cost: <input class="js-cost-input slider-input" style="display: none;" type="text"/><br/>
       {{/if}}
-      benefit:
-      <input class="js-benefit-input slider-input" style="display: none;" type="text"/><br/>
+      benefit: <input class="js-benefit-input slider-input" style="display: none;" type="text"/><br/>
     {{else}}
       Loading?
     {{/if}}
   </div>
+</template>
+
+
+<template name="pokerCards">
+  <div id="poker-card-carousel" class="carousel slide" data-ride="carousel" data-interval="false">
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      {{#each card in pokerCards}}
+        <div class="item {{#if _isSelected @index}}active{{else}}inactive{{/if}}">
+          {{> pokerCard card}}
+        </div>
+      {{/each}}
+    </div>
+    <!-- Controls -->
+    <a class="js-left left carousel-control" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="js-right right carousel-control" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+  </div> <!-- Carousel -->
 </template>

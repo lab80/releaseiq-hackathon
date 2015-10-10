@@ -22,15 +22,42 @@ Template.pokerCard.onRendered(->
   #)
 )
 
+Template.pokerCards.events(
+  "click .js-left": (event, template) -> template.$(".carousel").carousel("prev")
+  "click .js-right": (event, template) -> template.$(".carousel").carousel("next")
+)
+
+Template.pokerCards.helpers(
+  _isSelected: (idx) ->
+    this.selected == idx
+)
+
 Fixtures.addFixture("pokerCard", ""
   Loading: {}
   User:
-    featureName: "Feature name"
-    isBuilder: false
-    benefit: 1
-  Builder:
-    featureName: "Feature name"
-    isBuilder: true
+    featureName: 'Feature name'
     cost: 1
-    benefit: 1
+    benefit: 4
+    isBuilder: false
+  Builder:
+    featureName: 'Feature name'
+    cost: 4
+    benefit: 3
+    isBuilder: true
+)
+
+_cards = (isBuilder) -> _.map(_.range(5), (idx) ->
+  featureName: "Feature #{idx} (#{_.random(0, 5)}, #{_.random(0, 5)})"
+  cost: _.random(0, 5)
+  benefit: _.random(0, 5)
+  isBuilder: isBuilder
+)
+
+Fixtures.addFixture("pokerCards", ""
+  userLoaded:
+    selected: 3
+    pokerCards: _cards(false)
+  builderLoaded:
+    selected: 3
+    pokerCards: _cards(true)
 )
