@@ -38,3 +38,7 @@ telescope:getting-started
 # telescope:update-prompt
 
 ############ Your Custom Packages ############
+
+standard-minifiers
+less
+coffeescript
