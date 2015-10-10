@@ -1,6 +1,9 @@
 Fixtures.addFixture("sectionHero", ""
   Loading: {}
-  Normal:
-    pageTitle: "Page H1"
-    pageTitleCaption: "Caption H2"
+  Backlog:
+    pageTitle: "All Feature Requests"
+    pageTitleCaption: "Total 22 requests"
+  Planning:
+    pageTitle: "Release Name"
+    pageTitleCaption: "Prioritize feature candidates for next release"
 )

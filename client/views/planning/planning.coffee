@@ -28,7 +28,7 @@ Template.planning.helpers(
   _ready: ->
     Telescope.subsManager.ready()
 
-  _heroData: -> Fixtures.getData("sectionHero", "Normal")
+  _heroData: -> Fixtures.getData("sectionHero", "Planning")
 
   _featureData: ->
     #Fixtures.getData("featureGrid", "Normal")
