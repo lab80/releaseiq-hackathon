@@ -33,6 +33,7 @@ chuangbo:marked@0.3.5_1
 cmather:handlebars-server@2.0.0
 coffeescript@1.0.10
 cosmos:browserify@0.5.1
+d3js:d3@3.5.5
 dburles:collection-helpers@1.0.3
 ddp@1.2.2
 ddp-client@1.2.1
@@ -82,6 +83,7 @@ meteorhacks:subs-manager@1.6.2
 meteorspark:util@0.2.0
 minifiers@1.1.7
 minimongo@1.0.10
+mizzao:bootstrap-3@3.3.1_1
 mobile-status-bar@1.0.6
 momentjs:moment@2.10.6
 mongo@1.1.2

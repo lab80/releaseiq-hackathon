@@ -43,3 +43,5 @@ standard-minifiers
 less
 coffeescript
 lab80:fixtures
+d3js:d3
+mizzao:bootstrap-3
