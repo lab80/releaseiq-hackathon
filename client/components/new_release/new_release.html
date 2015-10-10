@@ -1,35 +1,39 @@
 <!-- Create a new release plan with a subset of features from Backlog -->
 
 <template name="newRelease">
-  <h2 class="new-release-form-title">Create a Planning Event</h2>
-  <div class="new-release-subheader">No planning event scheduled. Please create one below.</div>
+  {{> sectionHero
+    pageTitle="Create a Planning Event"
+    pageTitleCaption="No planning event scheduled. Please create one below."
+  }}
+  <!-- <h1 class="page-h1">Create a Planning Event</h1>
+  <h2 class="caption-h2">No planning event scheduled. Please create one below.</h2> -->
 
   <form class="new-release-form-container" id="new-release-form">
     <div class="form-group">
       <label>Release Name</label>
-      <input type="text" id="release-name" class="form-control">
+      <input type="text" id="release-name" class="form-control input-lg">
     </div>
     <div class="form-group">
       <label>Description</label>
-      <textarea id="description" form="new-release-form" class="form-control new-release-desc" rows="3"></textarea>
+      <textarea id="description" form="new-release-form" class="form-control input-lg new-release-desc" rows="3"></textarea>
     </div>
     <div class="form-group">
       <label>Start Time</label>
-      <input id="start-time" type="text" class="form-control">
+      <input id="start-time" type="text" class="form-control input-lg">
     </div>
     <div class="form-group">
       <label>End Time</label>
-      <input id="end-time" type="text" class="form-control">
+      <input id="end-time" type="text" class="form-control input-lg">
     </div>
     <div class="form-group">
       <label>Feature Candidates</label>
       <div class="feature-candidates-container">
-        <select class="form-control" id="num-candidates" name="featureCandidate" form="new-release-form">
-          <option value="10">top 10</option>
-          <option value="5">top 5</option>
+        <select class="form-control input-lg" id="num-candidates" name="featureCandidate" form="new-release-form">
+          <option value="10">Top 10 in Backlog</option>
+          <option value="5">Top 5 in Backlog</option>
         </select>
       </div>
     </div>
-    <button type="submit" class="btn btn-default submit-new-release">Schedule</button>
+    <button type="submit" class="btn btn-outline-blue btn-lg submit-new-release">Schedule</button>
   </form>
 </template>

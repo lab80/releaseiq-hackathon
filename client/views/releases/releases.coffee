@@ -13,13 +13,3 @@ Template.releases.helpers(
 
   _launchedReleases: -> IQ.Releases.find({state: IQ.Releases.STATE.LAUNCHED})
 )
-
-Template.releaseItem.helpers(
-  _releaseDescription: -> this[this.state]?.description
-
-  _releaseFeatures: -> this[this.state]?.features
-)
-
-Template.featureItem.helpers(
-  _featureBCRatio: -> this.benefit / this.cost
-)
