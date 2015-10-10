@@ -53,15 +53,62 @@
     }
   }
   .about-us {
-    padding: 8rem 0;
+    padding: 8rem 0 0 0;
     text-align: center;
     h2.concept-tagline {
       margin: 0 auto 20px auto;
       color: @brand-blue;
-      font-size: 36px;
+      font-size: 3.6rem;
       font-weight: 300;
       @media @desktop {
         max-width: 900px;
+      }
+    }
+    .creator-list {
+      position: relative;
+      margin-top: 8rem;
+      .line {
+        width: 16rem;
+        height: 1px;
+        margin: 0 auto;
+        background-color: @grey4;
+      }
+      .made-by {
+        position: absolute;
+        width: 8rem;
+        top: -1.3rem;
+        left: 50%;
+        margin-left: -4rem;
+        text-align: center;
+        text-transform: uppercase;
+        background-color: white;
+      }
+      .creator-pic {
+        display: inline-block;
+        width: 7rem;
+        height: 7rem;
+        margin: 5rem 0.7rem;
+        border-radius: 3.5rem;
+        border: 3px solid white;
+        &:hover {
+          box-shadow: 0 0 0 1rem @brand-blue;
+        }
+        &.junhee {
+          .img-retina("/img/author-junhee.jpg");
+          background-size: contain;
+        }
+        &.howon {
+          .img-retina("/img/author-howon.jpg");
+          background-size: contain;
+        }
+        &.keywon {
+          .img-retina("/img/author-keywon.jpg");
+          background-size: contain;
+        }
+        &.michael {
+          .img-retina("/img/author-michael.jpg");
+          background-size: contain;
+        }
       }
     }
   }
