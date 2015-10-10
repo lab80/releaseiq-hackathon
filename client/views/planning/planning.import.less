@@ -1,6 +1,19 @@
 .planning-header-container {
   background-color: grey;
+  position: relative;
+  .img-retina("/img/bg-gradient-blue-horizontal.png");
+  background-size: contain;
+  background-repeat: repeat-y;
 }
+
+// .planning-header-container.gradient {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+  
+  
+// }
 
 .planning-header {
   height: 50px;
@@ -25,16 +38,18 @@
 .planning-subheader {
   clear: both;
   margin-top: 40px;
+  weight: 700;
+  color: @grey7;
 }
 
 .planning-release-name {
   height: 50px;
   font-size: 40px;
+  color: @brand-pink;
 }
 
 .two-by-two {
   height: 500px;
-  background-color: yellow;
   position: relative;
 }
 
@@ -45,7 +60,7 @@
   bottom: -25px;
   width: 400px;
   margin-left: -200px;
-  background-color: lightgrey;
+  // background-color: lightgrey;
   z-index: 1;
 }
 
