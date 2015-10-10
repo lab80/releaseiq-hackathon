@@ -13,7 +13,10 @@ Template.newRelease.events(
       endTime: new Date(template.$("#end-time").val())
       numCandidates: template.$("#num-candidates").val()
 
-    Meteor.call("createRelease", formData)
+    Meteor.call("createRelease", formData, () ->
+      # FIXME: rediect me to somewhere
+      alert("success!")
+    )
 )
 
 Fixtures.addFixture("newRelease", ""

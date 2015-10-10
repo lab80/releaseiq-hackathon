@@ -21,12 +21,9 @@ Meteor.methods(
       createdAt: new Date(),
       state: "planning"
       planning: planning,
-      build: build,
-      launch: {}
+      build: build
 
-    # FIXME: Exception while invoking method 'createRelease' Error: 0 must be an object
-
-    IQ.Releases.insert(
+    return IQ.Releases.insert(
       release
     )
 )

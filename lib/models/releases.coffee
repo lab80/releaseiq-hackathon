@@ -4,11 +4,12 @@ PhaseSchema = new SimpleSchema(
   start:
     type: Date
   features:
-    type: [Object]
+    type: [String]
     blackbox: true
   description:
     type: String
     max: 1000
+    optional: true
 )
 
 IQ.Releases = new Mongo.Collection("iq_releases")
@@ -29,8 +30,8 @@ IQ.Releases.attachSchema(new SimpleSchema(
     type: PhaseSchema
   build:
     type: PhaseSchema
+    optional: true
   launch:
     type: PhaseSchema
+    optional: true
 ))
-
-# Meteor.startup(-> addJob())
