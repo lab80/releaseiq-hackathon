@@ -1,42 +1,11 @@
-<template name="pokerCard">
-  <div class="component-poker-card">
-    {{#if featureName}}
-      <div class="poker-feature-name">{{featureName}}</div>
-      {{#if isBuilder}}
-        <div class="poker-feature-cost">
-          cost: <input class="js-cost-input slider-input" type="text"/>
-        </div>
-        <div class="poker-feature-benefit">
-          benefit: <input class="js-benefit-input slider-input" type="text"/>
-        </div>
-      {{else}}
-        <div class="poker-feature-benefit">
-          benefit: <input class="js-benefit-input slider-input" type="text"/>
-        </div>
-      {{/if}}
-    {{else}}
-      Loading...
-    {{/if}}
-  </div>
-</template>
-
 <template name="pokerCards">
-  <div id="poker-carousel" class="component-poker-card-carousel carousel slide" data-ride="carousel">
+  <div id="poker-carousel" class="component-poker-card-carousel carousel slide" data-ride="carousel" data-interval=false>
     <div class="carousel-inner" role="listbox">
-      <div class="item active">
-        first feature
-        feature slider container
-      </div>
-      <div class="item">
-        second feature
-      </div>
-
-      <!-- FIXME: uncomment it once we have the feature data -->
-      <!-- {{#each card in pokerCards}}
+      {{#each feature in features}}
         <div class="item {{#if _isSelected @index}}active{{else}}inactive{{/if}}">
-          {{> pokerCard card}}
+          {{> pokerCard feature}}
         </div>
-      {{/each}} -->
+      {{/each}}
     </div>
 
     <a class="left carousel-control" href="#poker-carousel" role="button" data-slide="prev">
@@ -45,5 +14,44 @@
     <a class="right carousel-control" href="#poker-carousel" role="button" data-slide="next">
       <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
     </a>
+  </div>
+</template>
+
+<template name="pokerCard">
+  <div class="component-poker-card">
+    {{#if featureName}}
+      <div class="poker-feature-name">{{featureName}}</div>
+      <div class="poker-feature-bottom">
+        {{#if isBuilder}}
+          <div class="poker-feature-cost">
+            <span class="poker-input-left">
+              Cost 
+            </span>
+            <span class="poker-input-right">
+              <input class="js-cost-input slider-input" type="text"/>
+            </span>
+          </div>
+          <div class="poker-feature-benefit">
+            <span class="poker-input-left">
+              Benefit
+            </span>
+            <span clss="poker-input-right">
+              <input class="js-benefit-input slider-input" type="text"/>
+            </span>
+          </div>
+        {{else}}
+          <div class="poker-feature-benefit">
+            <span class="poker-input-left">
+              Benefit
+            </span>
+            <span clss="poker-input-right">
+              <input class="js-benefit-input slider-input" type="text"/>
+            </span>
+          </div>
+        {{/if}}
+      </div>
+    {{else}}
+      Loading...
+    {{/if}}
   </div>
 </template>

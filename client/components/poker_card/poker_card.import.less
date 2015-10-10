@@ -1,4 +1,12 @@
 #poker-carousel {
+	height: 20rem;
+	width: 50rem;
+  position: absolute;
+  left: 50%;
+  bottom: -25px;
+  margin-left: -200px;
+  z-index: 1;
+
 	border-radius: 8px;
 	background-color: white;
 	box-shadow: 0 0 50px #333;
@@ -26,10 +34,36 @@
 	.left.carousel-control {
 		margin-left: -50px;
 	}
+
+	.carousel-inner,
+	.item {
+		height: 100%;
+	}
 }
 
+// feature item
 .component-poker-card {
-	width: 80%;
+	border-radius: 0.8rem;
+	width: 100%;
+	height: 100%;
 	margin: 0 auto;
-  background-color: red;
+  background-color: white;
+
+  .poker-feature-name {
+  	text-align: center;
+  	font-size: 2.4rem;
+  	font-weight: 600;
+  	color: black;
+  	margin: 2rem;
+  }
+
+  .poker-feature-bottom {
+  	padding: 0 1rem;
+  }
+
+  .poker-input-left,
+  .poker-input-right {
+  	color: @grey5;
+  	margin-right: 0.5rem;
+  }
 }

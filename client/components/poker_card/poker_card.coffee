@@ -41,6 +41,9 @@ Template.pokerCard.onRendered(->
 Template.pokerCards.helpers(
   _isSelected: (idx) ->
     this.selected == idx
+
+  features: () ->
+    _cards()
 )
 
 Fixtures.addFixture("pokerCard", ""
@@ -57,12 +60,13 @@ Fixtures.addFixture("pokerCard", ""
     isBuilder: true
 )
 
-_cards = (isBuilder) -> _.map(_.range(5), (idx) ->
-  featureName: "Feature #{idx} (#{_.random(0, 5)}, #{_.random(0, 5)})"
-  cost: _.random(0, 5)
-  benefit: _.random(0, 5)
-  isBuilder: isBuilder
-)
+_cards = (isBuilder) -> 
+  mockCards = _.map(_.range(5), (idx) ->
+    featureName: "Feature #{idx} (#{_.random(0, 5)}, #{_.random(0, 5)})"
+    cost: _.random(0, 5)
+    benefit: _.random(0, 5)
+    isBuilder: isBuilder
+  )
 
 Fixtures.addFixture("pokerCards", ""
   UserLoaded:
