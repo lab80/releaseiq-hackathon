@@ -1,8 +1,19 @@
 <template name="iq_header">
-  <ul>
-    <li><a href="/">home</a></li>
-    <li><a href="/backlog">backlog</a></li>
-    <li><a href="/planning">planning</a></li>
-    <li><a href="/releases">releases</a></li>
-  </ul>
+	<header class="header component-iq-header {{_headerClass}}">
+		<a href="#menu" class="mobile-only mobile-menu-button button">
+      {{{icon "menu"}}}
+    </a>
+    <div class="page-width">
+	    <a class="header-link-home" href="/">
+	    	<div class="logo-mini">
+	    		<img src="/img/logo-mini.svg" alt="ReleaseIQ mini logo">
+	    	</div>
+	    </a>
+		  <ul class="nav header-page-nav">
+		    <li><a href="/backlog">backlog</a></li>
+		    <li><a href="/planning">planning</a></li>
+		    <li><a href="/releases">releases</a></li>
+		  </ul>
+		 </div>
+  </header>
 </template>

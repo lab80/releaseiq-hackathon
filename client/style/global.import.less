@@ -55,7 +55,7 @@ h1.page-h1 {
 }
 h2.caption-h2 {
 	margin: 0;
-	color: @grey4;
+	color: @grey6;
 	font-size: 16px;
 	font-weight: 600;
 	text-align: left;
@@ -166,10 +166,19 @@ p.page-text {
 }
 
 // ----------
-// Layout Mixins
+// Layout Tricks
 
-
-
+// Telescope override
+.inner-wrapper .content-wrapper {
+	width: 100%;
+	max-width: 100%;
+	padding: 0;
+}
+.page-width {
+	width: 90%;
+	max-width: 1300px;
+	margin: 0 auto;
+}
 
 // ----------
 // Forms
