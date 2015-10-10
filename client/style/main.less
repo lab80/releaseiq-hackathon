@@ -2,14 +2,14 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,600);
 // app-wide
 @import 'global.import.less';
-// individual views (pages)
-@import '../views/home/home.import.less';
-@import '../views/backlog/backlog.import.less';
-@import '../views/planning/planning.import.less';
-@import '../views/releases/releases.import.less';
 // UI components
 @import '../components/header/header.import.less';
 @import '../components/poker_card/poker_card.import.less';
 @import '../components/section_hero/section_hero.import.less';
 @import '../components/feature_grid/feature_grid.import.less';
 @import '../components/new_release/new_release.import.less';
+// individual views (pages) override components
+@import '../views/home/home.import.less';
+@import '../views/backlog/backlog.import.less';
+@import '../views/planning/planning.import.less';
+@import '../views/releases/releases.import.less';
