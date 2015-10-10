@@ -17,6 +17,10 @@ Posts.attachSchema(new SimpleSchema(
     optional: true
 ))
 
+ESTIMATES_TO_AGGREGATES =
+  costEstimates: 'aggregateCost'
+  benefitEstimates: 'aggregateBenefit'
+
 IQ.score = (collection, costOrBenefit, itemId, score) ->
   user = Meteor.user()
   if (!user || !Users.can.vote(user, true))
@@ -44,6 +48,15 @@ IQ.score = (collection, costOrBenefit, itemId, score) ->
       },
       validate: false
     )
+
+  costOrBenefits = collection.findOne(itemId, {fields: {"#{costOrBenefit}": 1}})[costOrBenefit]
+  scores = _.pluck(costOrBenefits, 'score')
+  votePowers = _.pluck(costOrBenefits, 'votePower')
+  aggregatedScore = _.reduce(_.zip(scores, votePowers), ((memo, pair) -> memo + pair[0]*pair[1]), 0)
+  result = collection.update(
+    {_id: item && item._id},
+    {$set: {"#{ESTIMATES_TO_AGGREGATES[costOrBenefit]}": aggregatedScore}}
+  )
 
 Meteor.methods(
   estimateCost: (postId, score) ->
