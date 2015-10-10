@@ -20,6 +20,15 @@ body {
 		background-color: pink;
 	}
 }
+// Set root font size
+// 1rem = 8px on mobile, 10px on desktop
+@font-size-root: 10px;
+html {
+  font-size: (@font-size-root * 0.8); // must be 8px
+  @media @desktop {
+    font-size: (@font-size-root * 1.0); // must be 10px
+  }
+}
 
 // ----------
 // Color Variables
@@ -51,34 +60,34 @@ body, textarea, input, button, input[type="submit"], input[type="button"] {
 h1.page-h1 {
 	margin: 0;
 	color: @brand-blue;
-	font-size: 48px;
+	font-size: 4.8rem;
 	font-weight: 300;
 	text-align: left;
 }
 h2.caption-h2 {
 	margin: 0;
 	color: @grey6;
-	font-size: 16px;
+	font-size: 2.0rem;
 	font-weight: 700;
 	text-align: left;
 }
 h2.page-h2 {
 	margin: 0;
-	font-size: 36px;
+	font-size: 3.6rem;
 	font-weight: 700;
 	text-align: left;
 }
 h3.page-h3 {
 	margin: 0;
 	color: @grey8;
-	font-size: 24px;
+	font-size: 2.4rem;
 	font-weight: 700;
 	text-align: left;
 }
 h4.page-h4 {
 	margin: 0;
 	color: @grey6;
-	font-size: 18px;
+	font-size: 1.8rem;
 	font-weight: 700;
 	text-align: left;
 }
@@ -142,14 +151,14 @@ a:link {
 	&.btn-lg {
 		border-radius: 6px;
 		border-width: 3px;
-		font-size: 24px;
+		font-size: 2.4rem;
 	}
 }
 .btn-outline-blue {
 	border-radius: 4px;
 	border: 1px solid @brand-blue;
 	color: @brand-blue !important;
-	font-size: 16px;
+	font-size: 1.6rem;
 	&:hover {
 		border-color: @brand-blue-active;
 		color: @brand-blue-active;
@@ -159,7 +168,7 @@ a:link {
 	border-radius: 4px;
 	border: 1px solid white;
 	color: white !important;
-	font-size: 16px;
+	font-size: 1.6rem;
 	&:hover {
 		color: white;
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
@@ -177,6 +186,10 @@ a:link {
 
 html, body, #__blaze-root {
 	height: 100%;
+}
+img {
+  width: 100%;
+  height: 100%;
 }
 .horizontal-flush {
 	width: 100%;
