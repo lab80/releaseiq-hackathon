@@ -1,7 +1,7 @@
 .two-by-two {
   .horizontal-flush;
   .page-width;
-  height: 50rem;
+  height: 60rem;
   margin-bottom: 20rem;
   position: relative;
 }
@@ -12,63 +12,28 @@
   background-size: contain;
   background-repeat: repeat-y;
 }
-
 .planning-header {
   height: 5rem;
+  .header-right,
+  .header-left {
+    line-height: 5rem;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+  }
+  .header-left {
+    float: left;
+  }
+  .header-right {
+    float: right;
+  }
 }
-
-.planning-header .header-right,
-.planning-header .header-left {
-  line-height: 5rem;
-  font-size: 18px;
-  font-weight: bold;
-  color: white;
+.component-poker-card-carousel {
+  position: absolute;
+  left: 50%;
+  bottom: -6rem;
+  width: 50rem;
+  height: 22rem;
+  margin-left: -25rem;
+  background: rgba(0, 0, 0, 0.3);
 }
-
-.planning-header .header-left {
-  float: left;
-}
-
-.planning-header .header-right {
-  float: right;
-}
-
-.planning-subheader {
-  clear: both;
-  margin-top: 4rem;
-  weight: 700;
-  color: @grey7;
-}
-
-.planning-release-name {
-  height: 5rem;
-  font-size: 4rem;
-  font-weight: 100;
-  color: @brand-pink;
-}
-
-
-
-// .two-by-two {
-//   height: 400px; // should we dynamically change this?
-//   background-color: yellow;
-// }
-
-// ??? Should I keep the styles below ???
-
-// .two-by-two {
-//   .horizontal-flush;
-//   .page-width;
-//   height: 600px;
-//   margin-bottom: 200px;
-//   background-color: yellow;
-// }
-// .component-poker-card-carousel {
-//   position: absolute;
-//   left: 50%;
-//   bottom: -100px;
-//   width: 600px;
-//   height: 220px;
-//   margin-left: -300px;
-//   background: rgba(0, 0, 0, 0.3);
-// }

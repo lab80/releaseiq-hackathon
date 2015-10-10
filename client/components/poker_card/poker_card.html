@@ -19,51 +19,44 @@
 
 <template name="pokerCard">
   <div class="component-poker-card">
+    <table class="vertical-align"><tr><td>
     {{#if featureName}}
-      <div class="poker-feature-name">{{featureName}}</div>
+      <p class="poker-feature-count">1 of 10</p>
+      <h2 class="poker-feature-name">{{featureName}}</h2>
       <div class="poker-feature-bottom">
         {{#if isBuilder}}
-          <table class="slider-container">
-            <tr>
-            <td class="slider-tag">Cost</td>
-            <td>
-              <div class="cost-slider">
-                <input class="js-cost-input slider-input" type="text"/>
-              </div>
-            </td>
-            </tr>
-            <tr>
-            <td class="slider-tag">Benefit</td>
-            <td>
-              <div class="benefit-slider">
-                <input class="js-benefit-input slider-input" type="text"/>
-              </div>
-            </td>
-            </tr>
-          </table>
+          <div class="slider-container">
+            <div class="slider-tag col-xs-2">Cost</div>
+            <div class="cost-slider col-xs-10">
+              <input class="js-cost-input slider-input" type="text"/>
+            </div>
+          </div>
+          <div class="slider-container">
+            <div class="slider-tag col-xs-2">Benefit</div>
+            <div class="benefit-slider col-xs-10">
+              <input class="js-benefit-input slider-input" type="text"/>
+            </div>
+          </div>
         {{else}}
-          <table class="slider-container">
-            <tr>
-            <td class="slider-tag">Cost</td>
-            <td>
-              <div class="cost-slider">
-                <input class="js-cost-input slider-input" type="text"/>
-              </div>
-            </td>
-            </tr>
-          </table>
+          <div class="slider-container">
+            <div class="slider-tag">Cost</div>
+            <div class="cost-slider">
+              <input class="js-cost-input slider-input" type="text"/>
+            </div>
+          </div>
         {{/if}}
       </div>
     {{else}}
       Loading...
     {{/if}}
+    </td></tr></table>
   </div>
 </template>
 
-<!-- 
+<!--
           <div class="poker-feature-cost">
             <span class="poker-input-left">
-              Cost 
+              Cost
             </span>
             <span class="poker-input-right">
               <input class="js-cost-input slider-input" type="text"/>

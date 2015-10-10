@@ -1,63 +1,88 @@
-#poker-carousel {
-  height: 20rem;
-  width: 50rem;
+.component-poker-card-carousel {
   position: absolute;
   left: 50%;
   bottom: -10rem;
+  width: 50rem;
+  height: 100%;
   margin-left: -200px;
   z-index: 1;
-
   border-radius: 0.8rem;
   background-color: white;
-  box-shadow: 0 0 50px #333;
-
+  box-shadow: 0 1rem 10rem rgba(0, 0, 0, 0.8);
   .carousel-control {
-    .middle;
     position: absolute;
+    top: 7rem;
     bottom: auto;
-    width: 30px;
-    height: 30px;
+    width: 5rem;
+    height: 5rem;
     background-color: transparent;
     color: white;
     cursor: pointer;
     background-image: none;
   }
-
   .right.carousel-control {
-    margin-right: -50px;
+    margin-right: -6rem;
   }
-
   .carousel-control .glyphicon {
-    font-size: 20px;
+    width: 100%;
+    height: 100%;
+    font-size: 4rem;
   }
-
   .left.carousel-control {
-    margin-left: -50px;
+    margin-left: -6rem;
   }
-
   .carousel-inner,
   .item {
     height: 100%;
   }
-
+}
+// feature item
+.component-poker-card {
+  border-radius: 0.8rem;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  background-color: white;
+  .poker-feature-count {
+    position: relative;
+    top: -1.5rem;
+    font-weight: 700;
+    text-align: center;
+  }
+  .poker-feature-name {
+    width: 100%;
+    margin: -1.5rem auto 1rem auto;
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: @grey10;
+  }
+  .poker-input-left,
+  .poker-input-right {
+    color: @grey5;
+    margin-right: 0.5rem;
+  }
+  .poker-feature-bottom {
+    width: 90%;
+    margin: 0 auto;
+    .slider-container {
+      .horizontal-flush;
+      margin-top: 2rem;
+    }
+    .slider-tag {
+      color: @grey8;
+      font-size: 1.8rem;
+      font-weight: 700;
+      text-align: center;
+    }
+    .slider.slider-horizontal {
+      width: 100%;
+      height: 3.0rem;
+    }
+  }
 }
 
-.poker-feature-bottom .slider-container tr {
-  border: none;
-  margin-top: 3rem;
-  padding-top: 3rem;
-}
 
-.poker-feature-bottom .slider-container .slider-tag {
-  text-align: right;
-  width: 10rem;
-}
-
-.slider-container .slider.slider-horizontal {
-  width: 30rem;
-  margin-left: 2rem;
-  height: 2.6rem;
-}
 
 .slider-container .slider.slider-horizontal .slider-track {
   border-radius: 0.8rem;
@@ -69,9 +94,10 @@
 }
 
 .slider-container .slider-handle {
-  width: 2.6rem;
-  height: 2.6rem;
-  border-radius: 1.3rem;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 1.8rem;
+  margin-top: -1.0rem !important;
 }
 
 .slider-container .slider-selection {
@@ -102,29 +128,4 @@
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
 }
 
-// feature item
-.component-poker-card {
-  border-radius: 0.8rem;
-  width: 100%;
-  height: 80%;
-  margin: 0 auto;
-  background-color: white;
 
-  .poker-feature-name {
-    text-align: center;
-    font-size: 2.4rem;
-    font-weight: 400;
-    color: black;
-    margin: 2rem;
-  }
-
-  .poker-feature-bottom {
-    padding: 0 1rem;
-  }
-
-  .poker-input-left,
-  .poker-input-right {
-    color: @grey5;
-    margin-right: 0.5rem;
-  }
-}
