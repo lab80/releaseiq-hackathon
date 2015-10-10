@@ -1,9 +1,15 @@
 <template name="pokerCard">
   <div class="poker-card">
-    {{featureName}}<br/>
-    {{#if isBuilder}}
-    cost: {{cost}}<br/>
+    {{#if featureName}}
+      {{featureName}}<br/>
+      {{#if isBuilder}}
+      cost:
+      <input class="js-cost-input slider-input" style="display: none;" type="text"/><br/>
+      {{/if}}
+      benefit:
+      <input class="js-benefit-input slider-input" style="display: none;" type="text"/><br/>
+    {{else}}
+      Loading?
     {{/if}}
-    benefit: {{benefit}}
   </div>
 </template>
