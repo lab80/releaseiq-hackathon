@@ -11,17 +11,10 @@
       </div>
     </div>
 
-    <div class="planning-subheader page-width">
-      <!-- {{> sectionHero "Hello Money Firecat"}} -->
-
-      <div class="planning-release-name">
-        Hello Money "Firecat"
-      </div>
-
-      <div class="planning-subtext">
-        Prioritize feature candidates for next release
-      </div>
-    </div>
+    {{> sectionHero
+      pageTitle="Hello Money Firecat"
+      pageTitleCaption="Prioritize feature candidates for next release"
+    }}
 
     <div class="two-by-two">
       {{> featureGrid _featureData}}
@@ -35,7 +28,7 @@
       </div>
     <!-- {{/if}} -->
   </div>
-  
+
 
 <!-- FIXME -->
   {{#if _isPlanThere}}

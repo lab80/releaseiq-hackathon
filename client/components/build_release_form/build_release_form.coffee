@@ -7,7 +7,7 @@ Template.buildReleaseForm.helpers(
   _duration: -> "24 hours" #FIXME
 
   features: -> this.features
-  
+
   releaseName: -> "What is release name" #FIXME
 )
 
@@ -33,7 +33,7 @@ Template.buildReleaseForm.events(
 )
 
 Template.buildFeatureRow.helpers(
-  _featureBCRatio: -> this.benefit / this.cost
+  _featureBCRatio: -> (this.benefit / this.cost).toFixed(2)
 )
 
 _features = (n) ->

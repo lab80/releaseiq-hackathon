@@ -6,8 +6,10 @@ _isBuilder = ->
 _features = ->
   posts = Posts.find().fetch()
   isBuilder = _isBuilder()
-  features = _.map(posts, (p) -> {
+  features = _.map(posts, (p, idx) -> {
     _id: p._id
+    featureIdx: idx+1
+    featureCount: _.size(posts)
     featureName: p.title
     cost: p.aggregateCost or 1
     benefit: p.aggregateBenefit or 1

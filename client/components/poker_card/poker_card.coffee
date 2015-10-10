@@ -16,7 +16,7 @@ Template.pokerCard.events(
 )
 
 _setValue = ($what, value) ->
-  $what.slider(min: 1, max: 5, value: value, tooltip: "hide")
+  $what.slider(min: 1, max: 5, value: value, tooltip: "always")
 
 Template.pokerCard.onRendered(->
   self = this
@@ -49,11 +49,15 @@ Template.pokerCards.helpers(
 Fixtures.addFixture("pokerCard", ""
   Loading: {}
   User:
+    featureIdx: 1
+    featureCount: 3
     featureName: 'Feature name'
     cost: 1
     benefit: 4
     isBuilder: false
   Builder:
+    featureIdx: 2
+    featureCount: 7
     featureName: 'Feature name'
     cost: 4
     benefit: 3

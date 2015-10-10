@@ -14,6 +14,29 @@ _truncateLabel = (str) ->
   else
     str
 
+_addDropshadow = (defs, id, dx, dy) ->
+    filter = defs.append("filter")
+      .attr("id", id)
+      .attr("height", "130%");
+    filter.append("feGaussianBlur")
+      .attr("in", "SourceAlpha")
+      .attr("stdDeviation", 1)
+      .attr("result", "blur")
+    filter.append("feOffset")
+      .attr("in", "blur")
+      .attr("dx", dx)
+      .attr("dy", dy)
+      .attr("result", "offsetBlur")
+    feComponentTransfer = filter.append("feComponentTransfer");
+    #feComponentTransfer.append("feFuncA")
+      #.attr("type", "linear")
+      #.attr("slope", "0.0")
+    feMerge = filter.append("feMerge")
+    feMerge.append("feMergeNode")
+      .attr("in", "offsetBlur")
+    feMerge.append("feMergeNode")
+      .attr("in", "SourceGraphic")
+
 Template.featureGrid.onRendered(->
   self = this
   # Set up the chart once
@@ -36,6 +59,9 @@ Template.featureGrid.onRendered(->
   height = $chart.height() - my[0] - my[1]
   canvas = canvas.append('g')
     .attr('transform', "translate(#{mx[0]}, #{my[0]}) scale(1, 1)")
+
+  defs = canvas.append("defs")
+  _addDropshadow(defs, "drop-shadow", 0, 1)
 
   canvas.append('line')
     .attr('class', 'axis')
@@ -106,21 +132,51 @@ Template.featureGrid.onRendered(->
     g = dots.enter().append("g")
       .attr("class", "dot")
       .attr("transform", (d) -> "translate(#{width-xScale(xValue(d))}, #{height-yScale(yValue(d))})")
-    g.append("rect")
-      .attr("width", 100)
-      .attr("height", 60)
-      .attr("fill", "white")
+    g.append("circle")
+      .attr("r", 20)
+      .style("filter", "url(#drop-shadow)")
+
+    g.append("text")
+      .attr("class", "label")
+      .attr("text-anchor", "middle")
+      .attr("x", 0)
+      .attr("y", 8)
+      .text((d) -> d.featureName.substr(0,1))
+
     g.append("text")
       .attr("text-anchor", "middle")
-      .attr("x", 30)
-      .attr("y", 10)
-      .text((d) -> _truncateLabel(d.featureName))
+      .attr("class", "cost")
+      .attr("x", -30)
+      .attr("y", 40)
+      .text((d) -> "#{d.cost}")
+      .style("filter", "url(#drop-shadow)")
+
     g.append("text")
       .attr("text-anchor", "middle")
+      .attr("class", "benefit")
       .attr("x", 30)
       .attr("y", 40)
-      .text((d) -> "#{d.cost} vs. #{d.benefit}")
+      .text((d) -> "#{d.benefit}")
+      .style("filter", "url(#drop-shadow)")
 
+    # g.append("rect")
+    #   .attr("width", 100)
+    #   .attr("height", 60)
+    #   .attr("fill", "white")
+    # g.append("text")
+    #   .attr("text-anchor", "middle")
+    #   .attr("x", 30)
+    #   .attr("y", 10)
+    #   .text((d) -> _truncateLabel(d.featureName))
+    # g.append("text")
+    #   .attr("text-anchor", "middle")
+    #   .attr("x", 30)
+    #   .attr("y", 40)
+    #   .text((d) -> "#{d.cost} vs. #{d.benefit}")
+
+
+      .attr("cx", (d) -> width-xScale(xValue(d)))
+      .attr("cy", (d) -> height-yScale(yValue(d)))
     dots.transition().duration(1000)
       .attr("transform", (d) -> "translate(#{width-xScale(xValue(d))}, #{height-yScale(yValue(d))})")
 
