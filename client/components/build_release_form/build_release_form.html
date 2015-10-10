@@ -1,36 +1,64 @@
 <template name="buildReleaseForm">
   <form class="build-release-form-container" id="build-release-form">
     <div class="form-group">
-      <label>Participants</label>
-      {{userCount}} users and {{builderCount}} builders in {{_duration}}.
+      <label class="thick">Participants</label>
+      <div class="sublabel">{{userCount}} users and {{builderCount}} builders in {{_duration}}.</div>
     </div>
     <div class="form-group">
-      <label>Cost/Benefit Analysis</label>
-      Pick features for {{name}} release below.
-    </div>
-    {{#each feature in planning.features}}
-      {{> buildFeatureRow feature}}
-    {{/each}}
-
-    <div class="form-group">
-      <label>Release Start Date</label>
-      <input id="start-time" type="text" class="form-control input-lg">
+      <label class="thick">Cost/Benefit Analysis</label>
+      <div class="sublabel">Pick features for {{name}} release below.</div>
     </div>
 
-    <div class="form-group">
-      <label>Release End Date</label>
-      <input id="end-time" type="text" class="form-control input-lg">
+    <div class="features-for-release">
+      <h3 class="page-h3 release-item-name">{{name}}</h3>
+      <h4 class="release-item-description">{{_releaseDescription}}</h4>
+
+      <!-- FIXME: :( takes too much time for me to do in div :( -->
+      <table class="features">
+        <tr>
+          <th>Feature</th>
+          <th>Cost</th>
+          <th>Benefit</th>
+          <th>B/C Ratio</th>
+        </tr>
+
+        {{#each feature in features}}
+          {{> buildFeatureRow feature}}
+        {{/each}}
+      </table>
     </div>
 
-    <div class="form-group">
-      <label>Announcement Text</label>
-      <textarea id="description" form="build-release-form" class="form-control input-lg new-release-desc" rows="3"></textarea>
+    <div class="narrow-form-groups">
+      <div class="form-group">
+        <label>Release Start Date</label>
+        <input id="start-time" type="text" class="form-control input-lg">
+      </div>
+
+      <div class="form-group">
+        <label>Release End Date</label>
+        <input id="end-time" type="text" class="form-control input-lg">
+      </div>
+
+      <div class="form-group">
+        <label>Announcement Text</label>
+        <textarea id="description" form="build-release-form" class="form-control input-lg new-release-desc" rows="3"></textarea>
+      </div>
     </div>
 
-    <button type="submit" class="btn btn-outline-blue btn-lg submit-build-release">Schedule</button>
+    <button type="submit" class="btn btn-outline-blue btn-lg submit-build-release">
+      Start {{getReleaseName}}
+    </button>
   </form>
 </template>
 
 <template name="buildFeatureRow">
-  Feature: {{title}}<br/>
+  <tr>
+    <td>
+      <input type="checkbox" name={{featureName}} val={{_id}} />
+      {{featureName}}
+    </td>
+    <td>{{cost}}</td>
+    <td>{{benefit}}</td>
+    <td>{{_featureBCRatio}}</td>
+  </tr>
 </template>

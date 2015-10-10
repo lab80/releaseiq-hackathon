@@ -27,9 +27,14 @@
       {{> featureGrid _featureData}}
       {{> pokerCards _cardsData}}
     </div>
-  </div>
 
-<!-- FIXME: will integrate after styling a little -->
+    <div class="build-release-container page-width">
+      {{> buildReleaseForm _featureData}}
+    </div>
+  </div>
+  
+
+<!-- FIXME -->
   {{#if _isPlanThere}}
     {{#if _isPlanning}} <!-- PLANNING  -->
       User and Builder will see the same 2x2 matrix
