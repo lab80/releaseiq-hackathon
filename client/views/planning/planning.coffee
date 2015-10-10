@@ -34,7 +34,11 @@ Template.planning.helpers(
 
   _heroData: -> Fixtures.getData("sectionHero", "Planning")
 
-  _isPlanning: -> IQ.Releases.find({state: IQ.Releases.STATE.PLANNING}).count() > 0
+  _isPlanThere: -> IQ.Releases.find({state: IQ.Releases.STATE.PLANNING}).count() > 0
+
+  _isPlanning: ->
+    release = IQ.Releases.findOne({state: IQ.Releases.STATE.PLANNING})
+    release[IQ.Releases.STATE.PLANNING].start < new Date()
 
   _isBuilding: -> IQ.Releases.find({state: IQ.Releases.STATE.BUILDING}).count() > 0
 
