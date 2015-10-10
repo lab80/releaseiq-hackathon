@@ -3,5 +3,79 @@
   border: 3px solid @grey4;
 }
 .release-item-row-header {
-
+  padding: 1.5rem 2rem;
+  font-weight: 700;
+  border-bottom: 3px solid @grey4;
+}
+.release-item-row-body {
+  padding: 1.5rem 2rem 0.5rem 2rem;
+  .release-item-name {
+    margin-bottom: 1rem;
+  }
+  .features-table {
+    .horizontal-flush;
+    margin-top: 3rem;
+    .feature-thead, .feature-row {
+      width: 100%;
+      padding: 0;
+      border-bottom: 1px solid @grey3;
+    }
+    .feature-thead > div, .feature-row > div {
+      position: relative;
+      float: left;
+      padding: 1rem 0;
+    }
+    .feature-row {
+      font-size: 2.2rem;
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+    .feature-row .feature-name,
+    .feature-row .feature-bc-ratio {
+      color: @grey8;
+    }
+    .feature-cost,
+    .feature-benefit,
+    .feature-bc-ratio {
+      text-align: right;
+    }
+    .feature-row .feature-cost,
+    .feature-row .feature-benefit,
+    .feature-row .feature-bc-ratio {
+      font-size: 14px;
+      @media @desktop {
+        font-size: 2.2rem;
+      }
+    }
+    .feature-name {
+      width: 100%;
+      @media @desktop {
+        width: 50%;
+      }
+    }
+    .feature-cost {
+      color: @brand-pink;
+      width: 25%;
+      @media @desktop {
+        width: 16.66%;
+      }
+    }
+    .feature-benefit {
+      color: @brand-blue;
+      width: 33.33%;
+      @media @desktop {
+        width: 16.66%;
+      }
+    }
+    .feature-bc-ratio {
+      width: 41.66%;
+      @media @desktop {
+        width: 16.66%;
+      }
+    }
+    .mobile-only-label {
+      color: @grey6;
+    }
+  }
 }

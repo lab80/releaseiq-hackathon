@@ -2,42 +2,48 @@
   <div class="release-item-row {{state}}">
     <div class="release-item-row-header">
       <span class="release-item-start-date">
-        Monday 10/19
+        Monday 10/19 FIXME
       </span>
       &ndash;
       <span class="release-item-end-date">
-        Friday 10/30
+        Friday 10/30 FIXME
       </span>
     </div>
 
     <div class="release-item-row-body">
-      <h3 class="release-item-name">{{name}}</h3>
-      <div class="release-item-desc">{{_releaseDescription}}</div>
+      <h3 class="page-h3 release-item-name">{{name}}</h3>
+      <h4 class="release-item-description">{{_releaseDescription}}</h4>
+
+      <div class="features-table">
+        <div class="feature-thead desktop">
+          <div class="feature-name">Feature</div>
+          <div class="feature-cost">Cost</div>
+          <div class="feature-benefit">Benefit</div>
+          <div class="feature-bc-ratio">B/C Ratio</div>
+        </div>
+        <div class="feature-row">
+          <div class="feature-name">Feature Name</div>
+          <div class="feature-cost"><span class="mobile">Cost:&nbsp;</span>44</div>
+          <div class="feature-benefit"><span class="mobile">Benefit:&nbsp;</span>121</div>
+          <div class="feature-bc-ratio"><span class="mobile">B/C Ratio:&nbsp;</span>3.02</div>
+        </div>
+
+        {{#each _releaseFeatures}}
+          {{> featureItem}}
+        {{/each}}
+
+      </div>
     </div>
-
-    <table class="features">
-      <tr>
-        <th>Feature</th>
-        <th>Cost</th>
-        <th>Benefit</th>
-        <th>B/C Ratio</th>
-      </tr>
-
-      {{#each _releaseFeatures}}
-        {{> featureItem}}
-      {{/each}}
-
-    </table>
   </div>
 </template>
 
 <template name="featureItem">
-  <tr>
-    <td class="feature-name">{{featureName}}</td>
-    <td class="feature-cost">{{cost}}</td>
-    <td class="feature-benefit">{{benefit}}</td>
-    <td class="feature-bc-ratio">{{_featureBCRatio}}</td>
-  </tr>
+  <div class="feature-row">
+    <div class="feature-name">{{featureName}}</div>
+    <div class="feature-cost"><span class="mobile">Cost:&nbsp;</span>{{cost}}</div>
+    <div class="feature-benefit"><span class="mobile">Benefit:&nbsp;</span>{{benefit}}</div>
+    <div class="feature-bc-ratio"><span class="mobile">B/C Ratio:&nbsp;</span>{{_featureBCRatio}}</div>
+  </div>
 </template>
 
 <!--
