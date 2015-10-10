@@ -1,5 +1,5 @@
 .top-nav .header.component-iq-header {
-	position: relative;
+	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -10,21 +10,29 @@
 		background-color: white;
 		border-bottom: 1px solid @grey4;
 	}
+  > .page-width {
+    height: 59px;
+  }
 	.header-link-home {
 		float: left;
-		padding-top: 5px;
+		padding-top: 10px;
 	}
 	.header-page-nav {
 		float: left;
+    height: 100%;
 		margin-left: 20px;
 		li {
 			display: inline-block;
+      height: 100%;
+      a {
+        text-transform: uppercase;
+      }
 		}
 	}
 	.nav-text {
 		color: @grey6;
 		font-weight: 700;
-		text-transform: uppercase;
+    padding: 15px 15px 14px 15px;
 		&:hover {
 			background-color: transparent;
 			color: @brand-pink;
@@ -34,16 +42,44 @@
 			color: @brand-blue;
 		}
 	}
-  .secondary-nav {
-    margin-top: 7px;
-    background: yellow;
-    .menu-top-level a {
-      .nav-text;
-      .avatar .avatar-initials {
-        font-size: 14px;
-        line-height: 1.2;
-      }
+  .secondary-nav, .user-menu-wrapper, .user-menu, .menu-top-level {
+    position: relative;
+    height: 100%;
+    margin: 0;
+  }
+  .menu-top-level&:hover a {
+    background-color: @grey1;
+    color: @brand-pink;
+    cursor: pointer;
+  }
+  .menu-top-level-link {
+    .nav-text;
+    position: relative;
+    top: 20px;
+    bottom: 0;
+    font-size: 15px;
+    cursor: pointer;
+    &:hover {
+      background-color: @grey1;
+      color: @brand-pink;
+      text-decoration: none;
     }
+    .avatar .avatar-initials {
+      top: 2px;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.3;
+      background-color: @brand-blue !important;
+    }
+  }
+  .menu-dropdown .menu-wrapper {
+    top: 30px;
+  }
+  .menu-dropdown.menu-has-items .menu-top-level:after {
+    display: none;
+  }
+  .submit-button {
+    display: none;
   }
 	.mobile-only {
 		.mobile-menu-button {
