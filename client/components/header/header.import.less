@@ -1,7 +1,7 @@
 .top-nav .header.component-iq-header {
 	position: relative;
-	//top: 0;
-	//left: 0;
+	top: 0;
+	left: 0;
 	width: 100%;
 	height: @header-height;
 	margin: 0;
@@ -17,18 +17,13 @@
 	.header-page-nav {
 		float: left;
 		margin-left: 20px;
-		background-color: yellow;
 		li {
 			display: inline-block;
 		}
 	}
-	.user-account-nav {
-		float: right;
-		//background-color: yellow;
-	}
-	a.nav-text {
+	.nav-text {
 		color: @grey6;
-		font-weight: 600;
+		font-weight: 700;
 		text-transform: uppercase;
 		&:hover {
 			background-color: transparent;
@@ -39,6 +34,17 @@
 			color: @brand-blue;
 		}
 	}
+  .secondary-nav {
+    margin-top: 7px;
+    background: yellow;
+    .menu-top-level a {
+      .nav-text;
+      .avatar .avatar-initials {
+        font-size: 14px;
+        line-height: 1.2;
+      }
+    }
+  }
 	.mobile-only {
 		.mobile-menu-button {
 			width: auto;
