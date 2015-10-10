@@ -1,0 +1,3 @@
+Fixtures.addFixture("featureGrid", ""
+  Loading: {}
+)

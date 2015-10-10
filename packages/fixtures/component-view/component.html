@@ -1,0 +1,44 @@
+<template name="componentList">
+  <div class="view component-list">
+    <div id="main">
+      <div class="container page-width">
+        <h1 class="component-title">Components</h1>
+        <ul>
+          {{#each component in components}}
+          <li>
+            <h2>
+              <a href="/component/{{component.id}}">
+                {{component.name}}
+              </a>
+            </h2>
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="component">
+  <div class="view component">
+    <div id="main">
+      <div class="container page-width">
+        <a href="/component" class="btn btn-primary component-list-btn">list</a>
+        <h1 class="component-title">{{name}}</h1>
+        <div class="demo">
+          {{#each state in states}}
+            <div class="row">
+              <div class="component-list-state col col-xs-2"><h2>{{state.name}}</h2></div>
+              <div class="component-list-item col-xs-6">
+                <div class="{{wrapperClasses}}">
+                  {{> Template.dynamic template=template data=state.data}}
+                </div>
+              </div>
+              <div class="component-list-data col-xs-4"><pre>{{stringify state.data}}</pre></div>
+            </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
