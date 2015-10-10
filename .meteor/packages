@@ -43,3 +43,4 @@ coffeescript
 lab80:fixtures
 d3js:d3
 mizzao:bootstrap-3
+momentjs:moment
