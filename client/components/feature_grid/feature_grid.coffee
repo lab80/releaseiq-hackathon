@@ -7,6 +7,13 @@ _getPosts = ->
   # )
   # posts
 
+TRUNCATE = 12
+_truncateLabel = (str) ->
+  if _.size(str) > TRUNCATE
+    "#{str.substr(0, TRUNCATE)}.."
+  else
+    str
+
 Template.featureGrid.onRendered(->
   self = this
   # Set up the chart once
@@ -17,6 +24,7 @@ Template.featureGrid.onRendered(->
 
   console.log "chartHeight", $chart.height()
 
+  #debugger  a
   chart = d3.select($chart.get(0))
   canvas = chart.append("svg")
     .attr("width", $chart.width())
@@ -35,37 +43,21 @@ Template.featureGrid.onRendered(->
     foo = Session.get("foo")
     posts = _getPosts()
 
-    $chart = self.$('.js-feature-grid')
-    width = $chart.width() - mx[0] - mx[1]
-    height = $chart.height() - my[0] - my[1]
-
-    $svg = self.$('.js-feature-grid svg')
-    $svg.attr("width", $chart.width())
-    $svg.attr("height", $chart.height())
-
     xValue = (p) -> p.cost
+    yValue = (p) -> p.benefit
+
     xScale = d3.scale.linear()
-      .domain([d3.min(posts, xValue), d3.max(posts, xValue)])
+      #.domain([d3.min(posts, xValue), d3.max(posts, xValue)])
+      .domain([1, 5])
       .range([0, width])
 
-    yValue = (p) -> p.benefit
     yScale = d3.scale.linear()
-      .domain([d3.min(posts, yValue), d3.max(posts, yValue)])
+    # .domain([d3.min(posts, yValue), d3.max(posts, yValue)])
+      .domain([1, 5])
       .range([0, height])
 
-    # console.log "posts", posts
-    # console.log "xScale", [d3.min(posts, xValue), d3.max(posts, xValue)], width
-    # console.log "yScale", [d3.min(posts, yValue), d3.max(posts, yValue)], height
     console.log "xs", width, _.map(posts, xValue)
     console.log "ys", height, _.map(posts, yValue)
-
-    xScale = d3.scale.linear()
-      .domain([1, 5])
-      .range([0, width])
-
-    yScale = d3.scale.linear()
-      .domain([1, 5])
-      .range([0, height])
 
     # console.log "posts", posts
     # console.log "xScale", [d3.min(posts, xValue), d3.max(posts, xValue)], width
@@ -85,7 +77,7 @@ Template.featureGrid.onRendered(->
       .attr("text-anchor", "middle")
       .attr("x", 30)
       .attr("y", 10)
-      .text((d) -> d.featureName)
+      .text((d) -> _truncateLabel(d.featureName))
     g.append("text")
       .attr("text-anchor", "middle")
       .attr("x", 30)
@@ -116,7 +108,7 @@ Template.featureGrid.onRendered(->
 )
 
 _features = _.map(_.range(10), (idx) ->
-  title: "#{idx}"
+  title: "Long long #{idx}"
   cost: _.random(0, 5)
   benefit: _.random(0, 5)
 )

@@ -1,33 +1,74 @@
-.template-planning {
-	.two-by-two {
-		.horizontal-flush;
-		height: 600px;
-		margin-bottom: 200px;
-		background-color: yellow;
-	}
-	.component-poker-card-carousel {
-		position: absolute;
-		left: 50%;
-		bottom: -100px;
-		width: 600px;
-		height: 220px;
-		margin-left: -300px;
-		background: rgba(0, 0, 0, 0.3);
-	}
-  .scheduled-event-row {
-    padding: 2rem 2.8rem;
-    border: 3px solid @grey3;
-    border-radius: 0.8rem;
-    .page-h3 {
-      margin-top: 0.5rem;
-      color: @grey6;
-    }
-    .metadata {
-      .horizontal-flush;
-      margin-top: 1.5rem;
-      .page-h4 {
-        margin-top: 0.5rem;
-      }
-    }
-  }
+.planning-header-container {
+  background-color: grey;
 }
+
+.planning-header {
+  height: 50px;
+}
+
+.planning-header .header-right,
+.planning-header .header-left {
+  line-height: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+}
+
+.planning-header .header-left {
+  float: left;
+}
+
+.planning-header .header-right {
+  float: right;
+}
+
+.planning-subheader {
+  clear: both;
+  margin-top: 40px;
+}
+
+.planning-release-name {
+  height: 50px;
+  font-size: 40px;
+}
+
+.two-by-two {
+  height: 500px;
+  background-color: yellow;
+  position: relative;
+}
+
+.component-poker-card-carousel {
+  position: absolute;
+  left: 50%;
+  height: 150px;
+  bottom: -25px;
+  width: 400px;
+  margin-left: -200px;
+  background-color: lightgrey;
+  z-index: 1;
+}
+
+// .two-by-two {
+//   height: 400px; // should we dynamically change this?
+//   background-color: yellow;
+// }
+
+// ??? Should I keep the styles below ???
+
+// .two-by-two {
+//   .horizontal-flush;
+//   .page-width;
+//   height: 600px;
+//   margin-bottom: 200px;
+//   background-color: yellow;
+// }
+// .component-poker-card-carousel {
+//   position: absolute;
+//   left: 50%;
+//   bottom: -100px;
+//   width: 600px;
+//   height: 220px;
+//   margin-left: -300px;
+//   background: rgba(0, 0, 0, 0.3);
+// }

@@ -1,11 +1,17 @@
+_isBuilder = ->
+  user = Meteor.user()
+  (user and user.isAdmin) == true
+
+
 _features = ->
   posts = Posts.find().fetch()
+  isBuilder = _isBuilder()
   features = _.map(posts, (p) -> {
     _id: p._id
     featureName: p.title
     cost: p.aggregateCost or 1
     benefit: p.aggregateBenefit or 1
-    isBuilder: true
+    isBuilder: isBuilder
   })
 
 _terms = ->
@@ -23,9 +29,6 @@ Template.planning.onCreated(->
 )
 
 Template.planning.helpers(
-  # _arguments: ->
-  #   FlowRouter.watchPathChange()
-  #   {terms: _terms()}
   _ready: ->
     Telescope.subsManager.ready()
 
@@ -35,9 +38,7 @@ Template.planning.helpers(
 
   _isBuilding: -> IQ.Releases.find({state: IQ.Releases.STATE.BUILDING}).count() > 0
 
-  _isBuilder: ->
-    user = Meteor.user()
-    (user and user.isAdmin) == true
+  _isBuilder: -> _isBuilder()
 
   _featureData: ->
     #Fixtures.getData("featureGrid", "Normal")

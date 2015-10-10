@@ -2,10 +2,12 @@
   <div class="page-width">
     {{> sectionHero _heroData}}
     <div class="releases-list">
-      {{#each releases}}
+      {{#each _buildingReleases}}
+        {{> releaseItem}}
+      {{/each}}
+      {{#each _launchedReleases}}
         {{> releaseItem}}
       {{/each}}
     </div>
   </div>
 </template>
-
