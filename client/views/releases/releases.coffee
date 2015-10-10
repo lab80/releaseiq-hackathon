@@ -7,6 +7,8 @@ Template.releases.onRendered(->
 )
 
 Template.releases.helpers(
+  _heroData: -> Fixtures.getData("sectionHero", "Releases")
+
   _noPlanning: -> IQ.Releases.find({state: IQ.Releases.STATE.PLANNING}).count() == 0
 
   _buildingReleases: -> IQ.Releases.find({state: IQ.Releases.STATE.BUILDING})
