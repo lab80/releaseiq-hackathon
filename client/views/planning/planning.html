@@ -34,25 +34,25 @@
   </div>
 
 <!-- FIXME: will integrate after styling a little -->
-<!--
-  {{#if _isPlanning}}
-    <div class="page-width">
-      {{> sectionHero _heroData}}
-    </div>
-    <div class="two-by-two">
-      {{> featureGrid _featureData}}
-      {{> pokerCards _cardsData}}
-    </div>
+  {{#if _isPlanThere}}
+    {{#if _isPlanning}} <!-- PLANNING  -->
+      User and Builder will see the same 2x2 matrix
+    {{else}} <!-- PLAN NOT STARTED  -->
+      User and Builder will see the same NEXT EVENT IN X DAYS MESSAGE
+    {{/if}}
   {{else}}
-    {{#if _isBuilding}}
-      WE'RE BUILDING NOW!
-    {{else}}
-      {{#if _isBuilder}}
-        {{> newRelease}}
-      {{else}}
-        NO PLANNING EVENT HAPPENNING NOW. COME BACK LATER
+    {{#if _isBuilding}} <!-- BUILDING -->
+      {{#if _isBuilder}} <!-- BUILDER WILL SEE 2X2+SUMMARY+CHECKBOX+FORM  -->
+        2X2 MATRIX + SUMMARY + CHECKBOX + FORM
+      {{else}} <!-- USER WILL SEE 2X2+SUMMARY -->
+        2X2 MATRIX + SUMMARY
       {{/if}}
-    </div>
+    {{else}} <!-- NO PLAN AT ALL -->
+      {{#if _isBuilder}} <!-- BUILDER WILL SEE NEW RELEASE FORM  -->
+        CREATE A PLANNING EVENT
+      {{else}} <!-- USER WILL SEE COME BACK MESSAGE  -->
+        COME BACK LATER
+      {{/if}}
+    {{/if}}
   {{/if}}
--->
 </template>
