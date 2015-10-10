@@ -56,25 +56,25 @@
 .slider-container .slider.slider-horizontal {
   width: 30rem;
   margin-left: 2rem;
-  height: 25px;
+  height: 2.6rem;
 }
 
 .slider-container .slider.slider-horizontal .slider-track {
-  border-radius: 8px;
-  height: 15px;
+  border-radius: 0.8rem;
+  height: 1.5rem;
 }
 
 .slider-container .slider-track .slider-selection {
-  border-radius: 8px;
+  border-radius: 0.8rem;
 }
 
 .slider-container .slider-handle {
-  width: 25px;
-  height: 25px;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 1.3rem;
 }
 
-.slider-container .slider-selection,
-.slider-container .slider-handle {
+.slider-container .slider-selection {
   background-image: none;
 }
 
@@ -84,7 +84,10 @@
 
 .cost-slider .slider-handle {
   background-color: @brand-pink-active;
-  // background: radial-gradient(center, @brand-pink-active, lighten(@brand-pink-active, 10%))
+  .img-retina ("/img/bg-gradient-square-pink.png");
+  background-size: contain;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 .benefit-slider .slider-selection {
@@ -93,6 +96,10 @@
 
 .benefit-slider .slider-handle {
   background-color: @brand-blue-active;
+  .img-retina ("/img/bg-gradient-square-blue.png");
+  background-size: contain;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 // feature item
