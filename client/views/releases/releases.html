@@ -1,9 +1,14 @@
 <template name="releases">
   <h2 class="releases-title">All Releases</h2>
-  <div class="new-release-subheader">No planning event scheduled. Please create one below.</div>
+  {{#if _noPlanning}}
+    <div class="new-release-subheader">No planning event scheduled. Please create one below.</div>
+  {{/if}}
 
   <div class="releases-list">
-    {{#each releases}}
+    {{#each _buildingReleases}}
+      {{> releaseItem}}
+    {{/each}}
+    {{#each _launchedReleases}}
       {{> releaseItem}}
     {{/each}}
   </div>
@@ -23,7 +28,7 @@
 
     <div class="release-body">
       <h3 class="release-name">{{name}}</h3>
-      <div class="release-desc">{{releaseDescription}}</div>
+      <div class="release-desc">{{_releaseDescription}}</div>
     </div>
 
     <table class="features">
@@ -34,7 +39,7 @@
         <th>B/C Ratio</th>
       </tr>
 
-      {{#each releaseFeatures}}
+      {{#each _releaseFeatures}}
         {{> featureItem}}
       {{/each}}
 
@@ -47,6 +52,6 @@
     <td class="feature-name">{{featureName}}</td>
     <td class="feature-cost">{{cost}}</td>
     <td class="feature-benefit">{{benefit}}</td>
-    <td class="feature-bc-ratio">{{featureBCRatio}}</td>
+    <td class="feature-bc-ratio">{{_featureBCRatio}}</td>
   </tr>
 </template>
