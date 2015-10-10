@@ -14,9 +14,9 @@ PhaseSchema = new SimpleSchema(
 
 IQ.Releases = new Mongo.Collection("iq_releases")
 IQ.Releases.STATE =
-  ANNOUNCED: 'announced'
-  BUILDING: 'building'
-  LAUNCHED: 'launched'
+  PLANNING: 'planning' # start
+  BUILDING: 'building' # live
+  LAUNCHED: 'launched' # done
 
 IQ.Releases.attachSchema(new SimpleSchema(
   name:
