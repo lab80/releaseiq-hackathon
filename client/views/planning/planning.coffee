@@ -19,6 +19,9 @@ Template.planning.helpers(
   # _arguments: ->
   #   FlowRouter.watchPathChange()
   #   {terms: _terms()}
+  _ready: ->
+    Telescope.subsManager.ready()
+
   _heroData: -> Fixtures.getData("sectionHero", "Normal")
 
   _featureData: ->
@@ -30,4 +33,12 @@ Template.planning.helpers(
     features = _features()
     return {} if _.isEmpty(features)
     _.first(features)
+
+  _cardsData: ->
+    features = _features()
+    console.log "features", features
+    data =
+      selected: 0
+      pokerCards: features
+    #Fixtures.getData("pokerCards", "UserLoaded")
 )

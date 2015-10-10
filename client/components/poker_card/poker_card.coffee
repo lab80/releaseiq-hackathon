@@ -23,8 +23,8 @@ Template.pokerCard.onRendered(->
 )
 
 Template.pokerCards.events(
-  "click .js-left": (event, template) -> template.$(".carousel").carousel("prev")
-  "click .js-right": (event, template) -> template.$(".carousel").carousel("next")
+  "click .js-left": (event, template) -> template.$(".js-carousel").carousel("prev")
+  "click .js-right": (event, template) -> template.$(".js-carousel").carousel("next")
 )
 
 Template.pokerCards.helpers(
@@ -54,10 +54,10 @@ _cards = (isBuilder) -> _.map(_.range(5), (idx) ->
 )
 
 Fixtures.addFixture("pokerCards", ""
-  userLoaded:
+  UserLoaded:
     selected: 3
     pokerCards: _cards(false)
-  builderLoaded:
+  BuilderLoaded:
     selected: 3
     pokerCards: _cards(true)
 )
