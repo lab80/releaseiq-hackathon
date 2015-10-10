@@ -17,3 +17,9 @@ FlowRouter.route("/releases",
   name: "releases"
   action: -> BlazeLayout.render("layout", {main: "releases"})
 )
+
+# FIXME: put me inside /planning
+FlowRouter.route("/releases/new",
+  name: "releases"
+  action: -> BlazeLayout.render("layout", {main: "newRelease"})
+)

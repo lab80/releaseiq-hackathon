@@ -1,3 +1,52 @@
 <template name="releases">
-  <p class="foo-releases">foo-releases</p>
+  <h2 class="releases-title">All Releases</h2>
+  <div class="new-release-subheader">No planning event scheduled. Please create one below.</div>
+
+  <div class="releases-list">
+    {{#each releases}}
+      {{> releaseItem}}
+    {{/each}}
+  </div>
+</template>
+
+<template name="releaseItem">
+  <div class="release-item">
+    <div class="release-header">
+      <span class="release-start-date">
+        Monday 10/19
+      </span>
+      -
+      <span class="release-end-date">
+        Friday 10/30
+      </span>
+    </div>
+
+    <div class="release-body">
+      <h3 class="release-name">{{name}}</h3>
+      <div class="release-desc">Let's help more beginner investors on Reddit.</div>
+    </div>
+
+    <table class="features">
+      <tr>
+        <th>Feature</th>
+        <th>Cost</th>
+        <th>Benefit</th>
+        <th>B/C Ratio</th>
+      </tr>
+
+      {{#each features}}
+        {{> featureItem}}
+      {{/each}}
+
+    </table>
+  </div>
+</template>
+
+<template name="featureItem">
+  <tr>
+    <td class="feature-name"></td>
+    <td class="feature-cost"></td>
+    <td class="feature-benefit"></td>
+    <td class="feature-bc-ratio"></td>
+  </tr>
 </template>
