@@ -28,9 +28,12 @@
       {{> pokerCards _cardsData}}
     </div>
 
-    <div class="build-release-container page-width">
-      {{> buildReleaseForm _featureData}}
-    </div>
+    <!-- FIXME: turning the condition off for now -->
+    <!-- {{#if _isPlanning}} -->
+      <div class="build-release-container page-width">
+        {{> buildReleaseForm _featureData}}
+      </div>
+    <!-- {{/if}} -->
   </div>
   
 
