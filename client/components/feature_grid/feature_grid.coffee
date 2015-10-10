@@ -34,9 +34,46 @@ Template.featureGrid.onRendered(->
   my = [20, 20]
   width = $chart.width() - mx[0] - mx[1]
   height = $chart.height() - my[0] - my[1]
-  canvas = canvas
-    .append('g')
+  canvas = canvas.append('g')
     .attr('transform', "translate(#{mx[0]}, #{my[0]}) scale(1, 1)")
+
+  canvas.append('line')
+    .attr('class', 'axis')
+    .attr('x1', 0)
+    .attr('x2', width)
+    .attr('y1', height/2)
+    .attr('y2', height/2)
+
+  canvas.append('line')
+    .attr('class', 'axis')
+    .attr('x1', width/2)
+    .attr('x2', width/2)
+    .attr('y1', 0)
+    .attr('y2', height)
+
+  canvas.append("text")
+    .attr("text-anchor", "middle")
+    .attr("x", .25*width)
+    .attr("y", .25*height)
+    .text((d) -> "High Cost x High Benefit")
+
+  canvas.append("text")
+    .attr("text-anchor", "middle")
+    .attr("x", .75*width)
+    .attr("y", .25*height)
+    .text((d) -> "Low Cost x High Benefit")
+
+  canvas.append("text")
+    .attr("text-anchor", "middle")
+    .attr("x", .25*width)
+    .attr("y", .75*height)
+    .text((d) -> "High Cost x Low Benefit")
+
+  canvas.append("text")
+    .attr("text-anchor", "middle")
+    .attr("x", .75*width)
+    .attr("y", .75*height)
+    .text((d) -> "Low Cost x Low Benefit")
 
   @autorun(->
     # Re-render the chart reactively
