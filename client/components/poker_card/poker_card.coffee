@@ -3,9 +3,20 @@ Template.pokerCard.helpers(
     console.log "ready", Telescope.subsManager.ready()
     Telescope.subsManager.ready()
 )
+Template.pokerCard.events(
+  "slideStop .js-cost-input": (event, template) ->
+    console.log "est cost", event.value
+    if template.data._id
+      Meteor.call("estimateCost", template.data._id, event.value)
+
+  "slideStop .js-benefit-input": (event, template) ->
+    console.log "est benefit", event.value
+    if template.data._id
+      Meteor.call("estimateBenefit", template.data._id, event.value)
+)
 
 _setValue = ($what, value) ->
-  $what.slider(min: 0, max: 5, value: value, tooltip: "hide")
+  $what.slider(min: 1, max: 5, value: value, tooltip: "hide")
 
 Template.pokerCard.onRendered(->
   self = this
