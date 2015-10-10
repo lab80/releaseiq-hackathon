@@ -32,7 +32,14 @@
     <div class="mobile-nav-inner">
       <ul class="mobile-menu">
         <!-- FIXME -->
-        {{> modules zone="mobileNav" moduleClass="mobile-menu-item"}}
+        <ul class="nav">
+          <li class="mobile-menu-item"><a class="nav-text" href="/">home</a></li>
+          <li class="mobile-menu-item"><a class="nav-text" href="/backlog">backlog</a></li>
+          <li class="mobile-menu-item"><a class="nav-text" href="/planning">planning</a></li>
+          <li class="mobile-menu-item"><a class="nav-text" href="/releases">releases</a></li>
+        </ul>
+
+        {{!-- modules zone="mobileNav" moduleClass="mobile-menu-item"--}}
       </ul>
     </div>
   </div>
