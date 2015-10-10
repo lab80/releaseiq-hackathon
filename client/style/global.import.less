@@ -13,6 +13,46 @@
 // 601px and up
 @desktop: ~"only screen and (min-width: @{desktop-min})";
 
+/* Mobile vs. desktop show and hide */
+// 0 - 600px
+@media @phone {
+  .desktop {
+    display: none !important;
+  }
+  .mobile {
+    display: inherit !important;
+  }
+  h1, h2, h3, h4, h5, p, .block {
+    &.mobile {
+      display: block !important;
+    }
+  }
+  span, a, img, .inline-block {
+    &.mobile {
+      display: inline-block !important;
+    }
+  }
+}
+@media @desktop {
+  .desktop {
+    display: inherit !important;
+  }
+  h1, h2, h3, h4, h5, p, .block {
+    &.desktop {
+      display: block !important;
+    }
+  }
+  span, a, img, .inline-block {
+    &.desktop {
+      display: inline-block !important;
+    }
+  }
+  .mobile {
+    display: none !important;
+  }
+}
+
+
 // Set root font size
 // 1rem = 8px on mobile, 10px on desktop
 @font-size-root: 10px;
