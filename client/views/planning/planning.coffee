@@ -22,7 +22,6 @@ _terms = ->
   if !terms.view
     terms.view = Settings.get('defaultView', 'top')
 
-
 Template.planning.onCreated(->
   Telescope.subsManager.subscribe("postsList", _terms())
   Telescope.subsManager.subscribe("iq_releases")
@@ -45,11 +44,9 @@ Template.planning.helpers(
   _isBuilder: -> _isBuilder()
 
   _featureData: ->
-    #Fixtures.getData("featureGrid", "Normal")
     features: _features()
 
   _cardData: ->
-    #Fixtures.getData("pokerCard", "User")
     features = _features()
     return {} if _.isEmpty(features)
     _.first(features)

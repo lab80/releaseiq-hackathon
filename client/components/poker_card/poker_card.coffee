@@ -59,15 +59,3 @@ Fixtures.addFixture("pokerCard", ""
     benefit: 3
     isBuilder: true
 )
-
-_cards = (isBuilder) ->
-  # Posts.find()
-
-  # debugger
-
-  # mockCards = _.map(_.range(5), (idx) ->
-  #   featureName: "Feature #{idx} (#{_.random(0, 5)}, #{_.random(0, 5)})"
-  #   cost: _.random(0, 5)
-  #   benefit: _.random(0, 5)
-  #   isBuilder: isBuilder
-  # )
