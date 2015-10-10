@@ -19,6 +19,7 @@ _terms = ->
 
 Template.planning.onCreated(->
   Telescope.subsManager.subscribe("postsList", _terms())
+  Telescope.subsManager.subscribe("iq_releases")
 )
 
 Template.planning.helpers(
@@ -29,6 +30,14 @@ Template.planning.helpers(
     Telescope.subsManager.ready()
 
   _heroData: -> Fixtures.getData("sectionHero", "Planning")
+
+  _isPlanning: -> IQ.Releases.find({state: IQ.Releases.STATE.PLANNING}).count() > 0
+
+  _isBuilding: -> IQ.Releases.find({state: IQ.Releases.STATE.BUILDING}).count() > 0
+
+  _isBuilder: ->
+    user = Meteor.user()
+    (user and user.isAdmin) == true
 
   _featureData: ->
     #Fixtures.getData("featureGrid", "Normal")

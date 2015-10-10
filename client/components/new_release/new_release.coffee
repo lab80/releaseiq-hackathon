@@ -13,9 +13,7 @@ Template.newRelease.events(
       endTime: new Date(template.$("#end-time").val())
       numCandidates: template.$("#num-candidates").val()
 
-    Meteor.call("createRelease", formData, () ->
-      FlowRouter.go('/releases')
-    )
+    Meteor.call("createRelease", formData)
 )
 
 Fixtures.addFixture("newRelease", ""
