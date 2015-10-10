@@ -6,7 +6,7 @@ PhaseSchema = new SimpleSchema(
   features:
     type: [Object]
     blackbox: true
-  announcement:
+  description:
     type: String
     max: 1000
 )
