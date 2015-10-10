@@ -1,0 +1,41 @@
+<template name="releaseItem">
+  <div class="release-item-row">
+    <div class="release-item-row-header">
+      <span class="release-item-start-date">
+        Monday 10/19
+      </span>
+      &ndash;
+      <span class="release-item-end-date">
+        Friday 10/30
+      </span>
+    </div>
+
+    <div class="release-item-row-body">
+      <h3 class="release-item-name">{{name}}</h3>
+      <div class="release-item-desc">{{releaseDescription}}</div>
+    </div>
+
+    <table class="features">
+      <tr>
+        <th>Feature</th>
+        <th>Cost</th>
+        <th>Benefit</th>
+        <th>B/C Ratio</th>
+      </tr>
+
+      {{#each releaseFeatures}}
+        {{> featureItem}}
+      {{/each}}
+
+    </table>
+  </div>
+</template>
+
+<template name="featureItem">
+  <tr>
+    <td class="feature-name">{{featureName}}</td>
+    <td class="feature-cost">{{cost}}</td>
+    <td class="feature-benefit">{{benefit}}</td>
+    <td class="feature-bc-ratio">{{featureBCRatio}}</td>
+  </tr>
+</template>

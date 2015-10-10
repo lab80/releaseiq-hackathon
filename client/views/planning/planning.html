@@ -8,14 +8,40 @@
       {{> pokerCards _cardsData}}
     </div>
   {{else}}
-    {{#if _isPlanning}}
-      Event will start in X days
-    {{else}}
-      {{#if _isBuilder}}
-        {{> newRelease}}
+    <div class="page-width">
+      {{#if _isPlanning}}
+        {{> sectionHero
+          pageTitle="Next Event in FIXME Days"
+          pageTitleCaption="1 planning event scheduled"
+        }}
+        <div class="scheduled-event-row">
+          <h2 class="page-h2">FIXME: Release Name</h2>
+          <h3 class="page-h3">FIXME: Release Description</h3>
+          <div class="row metadata">
+            <div class="col col-xs-12 col-sm-4">
+              <h4 class="page-h4">Event Start</h4>
+              <p class="page-text">FIXME</p>
+            </div>
+            <div class="col col-xs-12 col-sm-4">
+              <h4 class="page-h4">Event End</h4>
+              <p class="page-text">FIXME</p>
+            </div>
+            <div class="col col-xs-12 col-sm-4">
+              <h4 class="page-h4">Event Candidates</h4>
+              <p class="page-text">FIXME</p>
+            </div>
+          </div>
+        </div>
       {{else}}
-        Come back
+        {{#if _isBuilder}}
+          {{> newRelease}}
+        {{else}}
+          {{> sectionHero
+            pageTitle="No Event Scheduled"
+            pageTitleCaption="Contact us if you have questions"
+          }}
+        {{/if}}
       {{/if}}
-    {{/if}}
+    </div>
   {{/if}}
 </template>

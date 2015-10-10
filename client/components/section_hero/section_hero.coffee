@@ -6,4 +6,7 @@ Fixtures.addFixture("sectionHero", ""
   Planning:
     pageTitle: "Release Name"
     pageTitleCaption: "Prioritize feature candidates for next release"
+  Releases:
+    pageTitle: "All Releases"
+    pageTitleCaption: "X Total / Y in Progress"
 )

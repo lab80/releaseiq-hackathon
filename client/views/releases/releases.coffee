@@ -9,6 +9,7 @@ Template.releases.onRendered(->
 Template.releases.helpers(
   releases: () ->
     IQ.Releases.find()
+  _heroData: -> Fixtures.getData("sectionHero", "Releases")
 )
 
 Template.releaseItem.helpers(
