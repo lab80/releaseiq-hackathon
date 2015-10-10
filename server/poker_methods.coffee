@@ -53,7 +53,6 @@ IQ.score = (collection, costOrBenefit, itemId, score) ->
   scores = _.pluck(costOrBenefits, 'score')
   votePowers = _.pluck(costOrBenefits, 'votePower')
   aggregatedScore = _.reduce(_.zip(scores, votePowers), ((memo, pair) -> memo + pair[0]*pair[1]), 0)
-  console.log
   result = collection.update(
     {_id: item && item._id},
     {$set: {"#{ESTIMATES_TO_AGGREGATES[costOrBenefit]}": aggregatedScore}}
