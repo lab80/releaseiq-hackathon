@@ -7,13 +7,31 @@
 	}
 	.header-link-home {
 		float: left;
+		padding-top: 5px;
 	}
 	.header-page-nav {
 		float: left;
+		margin-left: 20px;
 		background-color: yellow;
 		li {
 			display: inline-block;
-			color: @grey6;
+		}
+	}
+	.user-account-nav {
+		float: right;
+		background-color: yellow;
+	}
+	a.nav-text {
+		color: @grey6;
+		font-weight: 600;
+		text-transform: uppercase;
+	}
+	.mobile-only {
+		.mobile-menu-button {
+			width: auto;
+			margin-top: -20px;
+			padding: 8px;
+			background-color: @brand-pink;
 		}
 	}
 }

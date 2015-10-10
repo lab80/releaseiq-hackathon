@@ -1,19 +1,36 @@
 <template name="iq_header">
 	<header class="header component-iq-header {{_headerClass}}">
-		<a href="#menu" class="mobile-only mobile-menu-button button">
-      {{{icon "menu"}}}
-    </a>
-    <div class="page-width">
-	    <a class="header-link-home" href="/">
+  	<!-- mobile only -->
+  	<div class="mobile-only">
+	  	<a href="#menu" class="mobile-menu-button button">
+	      {{{icon "menu"}}}
+	    </a>
+    </div>
+  	<!-- desktop only -->
+	  <div class="page-width">
+	    <a class="header-link-home desktop-nav" href="/">
 	    	<div class="logo-mini">
 	    		<img src="/img/logo-mini.svg" alt="ReleaseIQ mini logo">
 	    	</div>
 	    </a>
-		  <ul class="nav header-page-nav">
-		    <li><a href="/backlog">backlog</a></li>
-		    <li><a href="/planning">planning</a></li>
-		    <li><a href="/releases">releases</a></li>
+		  <ul class="nav desktop-nav header-page-nav">
+		    <li><a class="nav-text" href="/backlog">backlog</a></li>
+		    <li><a class="nav-text" href="/planning">planning</a></li>
+		    <li><a class="nav-text" href="/releases">releases</a></li>
+		  </ul>
+		  <ul class="nav desktop-nav user-account-nav">
+		  	<li><a class="account-link nav-text">Sign In</a></li>
 		  </ul>
 		 </div>
   </header>
+</template>
+
+<template name="mobile_nav">
+  <div class="mobile-nav dark-bg">
+    <div class="mobile-nav-inner">
+      <ul class="mobile-menu">
+        {{> modules zone="mobileNav" moduleClass="mobile-menu-item"}}
+      </ul>
+    </div>
+  </div>
 </template>
