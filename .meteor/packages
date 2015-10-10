@@ -8,13 +8,13 @@
 telescope:core
 
 ############ Telescope Packages (Optional) ############
-
+telescope:getting-started
 telescope:scoring
 telescope:search
 telescope:theme-base
 telescope:theme-hubble
 telescope:debug
-
+telescope:migrations
 # telescope:api
 # telescope:daily
 # telescope:datetimepicker
