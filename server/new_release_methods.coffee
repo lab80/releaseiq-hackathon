@@ -19,7 +19,7 @@ Meteor.methods(
     release =
       name: formData.name
       createdAt: new Date(),
-      state: "planning"
+      state: IQ.Releases.STATE.PLANNING
       planning: planning,
       build: build
 
