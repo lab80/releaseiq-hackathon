@@ -15,5 +15,5 @@ FlowRouter.route("/planning",
 
 FlowRouter.route("/releases",
   name: "releases"
-  action: -> BlazeLayout.render("releases", {})
+  action: -> BlazeLayout.render("layout", {main: "releases"})
 )
