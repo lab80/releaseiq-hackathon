@@ -4,9 +4,11 @@ Posts.attachSchema(new SimpleSchema(
   aggregateCost:
     type: Number
     decimal: true
+    optional: true
   aggregateBenefit:
     type: Number
     decimal: true
+    optional: true
   costEstimates:
     type: [Object]
     blackbox: true
