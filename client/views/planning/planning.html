@@ -32,8 +32,8 @@
   </div>
 
 <!-- FIXME: will integrate after styling a little -->
-<!-- 
-  {{#if _isBuilding}}
+<!--
+  {{#if _isPlanning}}
     <div class="page-width">
       {{> sectionHero _heroData}}
     </div>
@@ -42,14 +42,15 @@
       {{> pokerCards _cardsData}}
     </div>
   {{else}}
-    {{#if _isPlanning}}
-      Event will start in X days
+    {{#if _isBuilding}}
+      WE'RE BUILDING NOW!
     {{else}}
       {{#if _isBuilder}}
         {{> newRelease}}
       {{else}}
-        Come back
+        NO PLANNING EVENT HAPPENNING NOW. COME BACK LATER
       {{/if}}
     {{/if}}
-  {{/if}} -->
+  {{/if}}
+-->
 </template>
