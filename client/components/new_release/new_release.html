@@ -1,3 +1,5 @@
+<!-- Create a new release plan with a subset of features from Backlog -->
+
 <template name="newRelease">
   <h2 class="new-release-form-title">Create a Planning Event</h2>
   <div class="new-release-subheader">No planning event scheduled. Please create one below.</div>
@@ -5,30 +7,29 @@
   <form class="new-release-form-container" id="new-release-form">
     <div class="form-group">
       <label>Release Name</label>
-      <input type="email" class="form-control">
+      <input type="text" id="release-name" class="form-control">
     </div>
     <div class="form-group">
       <label>Description</label>
-      <textarea name="description" form="new-release-form" class="form-control new-release-desc" rows="3"></textarea>
+      <textarea id="description" form="new-release-form" class="form-control new-release-desc" rows="3"></textarea>
     </div>
     <div class="form-group">
       <label>Start Time</label>
-      <input name="startTime" type="text" class="form-control">
+      <input id="start-time" type="text" class="form-control">
     </div>
     <div class="form-group">
       <label>End Time</label>
-      <input name="endTime" type="text" class="form-control">
+      <input id="end-time" type="text" class="form-control">
     </div>
     <div class="form-group">
       <label>Feature Candidates</label>
       <div class="feature-candidates-container">
-        <select class="form-control" name="featureCandidate" form="new-release-form">
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="mercedes">Mercedes</option>
-          <option value="audi">Audi</option>
+        <select class="form-control" id="num-candidates" name="featureCandidate" form="new-release-form">
+          <option value="10">top 10</option>
+          <option value="5">top 5</option>
         </select>
       </div>
     </div>
+    <button type="submit" class="btn btn-default submit-new-release">Schedule</button>
   </form>
 </template>
