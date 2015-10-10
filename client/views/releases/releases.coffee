@@ -7,21 +7,19 @@ Template.releases.onRendered(->
 )
 
 Template.releases.helpers(
-  releases: () ->
-    IQ.Releases.find()
+  _noPlanning: -> IQ.Releases.find({state: IQ.Releases.STATE.PLANNING}).count() == 0
+
+  _buildingReleases: -> IQ.Releases.find({state: IQ.Releases.STATE.BUILDING})
+
+  _launchedReleases: -> IQ.Releases.find({state: IQ.Releases.STATE.LAUNCHED})
 )
 
 Template.releaseItem.helpers(
-  releaseDescription: () ->
-    phase = this[this.state]
-    phase.description
+  _releaseDescription: -> this[this.state]?.description
 
-  releaseFeatures: () ->
-    phase = this[this.state]
-    phase.features
+  _releaseFeatures: -> this[this.state]?.features
 )
 
 Template.featureItem.helpers(
-  featureBCRatio: () ->
-    this.benefit / this.cost
+  _featureBCRatio: -> this.benefit / this.cost
 )
