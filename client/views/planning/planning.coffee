@@ -60,5 +60,4 @@ Template.planning.helpers(
     data =
       selected: 0
       pokerCards: features
-    #Fixtures.getData("pokerCards", "UserLoaded")
 )
