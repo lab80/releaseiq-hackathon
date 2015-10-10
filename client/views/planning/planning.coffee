@@ -23,9 +23,6 @@ Template.planning.onCreated(->
 )
 
 Template.planning.helpers(
-  # _arguments: ->
-  #   FlowRouter.watchPathChange()
-  #   {terms: _terms()}
   _ready: ->
     Telescope.subsManager.ready()
 
