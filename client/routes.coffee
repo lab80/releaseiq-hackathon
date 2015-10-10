@@ -8,9 +8,9 @@ FlowRouter.route("/backlog",
   action: -> BlazeLayout.render("layout", {main: "backlog_posts_list"})
 )
 
-FlowRouter.route("/plan",
-  name: "plan"
-  action: -> BlazeLayout.render("plan", {})
+FlowRouter.route("/planning",
+  name: "planning"
+  action: -> BlazeLayout.render("planning", {})
 )
 
 FlowRouter.route("/releases",
