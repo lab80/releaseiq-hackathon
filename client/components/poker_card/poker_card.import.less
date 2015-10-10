@@ -1,101 +1,123 @@
 #poker-carousel {
-	height: 20rem;
-	width: 50rem;
+  height: 20rem;
+  width: 50rem;
   position: absolute;
   left: 50%;
   bottom: -10rem;
   margin-left: -200px;
   z-index: 1;
 
-	border-radius: 0.8rem;
-	background-color: white;
-	box-shadow: 0 0 50px #333;
+  border-radius: 0.8rem;
+  background-color: white;
+  box-shadow: 0 0 50px #333;
 
-	.carousel-control {
-		.middle;
-		position: absolute;
-		bottom: auto;
-		width: 30px;
-		height: 30px;
-		background-color: transparent;
-		color: white;
-		cursor: pointer;
-		background-image: none;
-	}
+  .carousel-control {
+    .middle;
+    position: absolute;
+    bottom: auto;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    background-image: none;
+  }
 
-	.right.carousel-control {
-		margin-right: -50px;
-	}
+  .right.carousel-control {
+    margin-right: -50px;
+  }
 
-	.carousel-control .glyphicon {
-		font-size: 20px;
-	}
+  .carousel-control .glyphicon {
+    font-size: 20px;
+  }
 
-	.left.carousel-control {
-		margin-left: -50px;
-	}
+  .left.carousel-control {
+    margin-left: -50px;
+  }
 
-	.carousel-inner,
-	.item {
-		height: 100%;
-	}
+  .carousel-inner,
+  .item {
+    height: 100%;
+  }
 
 }
 
 .poker-feature-bottom .slider-container tr {
-	border: none;
-	margin-top: 3rem;
-	padding-top: 3rem;
+  border: none;
+  margin-top: 3rem;
+  padding-top: 3rem;
 }
 
 .poker-feature-bottom .slider-container .slider-tag {
-	text-align: right;
-	width: 10rem;
+  text-align: right;
+  width: 10rem;
 }
 
 .slider-container .slider.slider-horizontal {
-	width: 30rem;
-	margin-left: 2rem;
-	height: 30px;
+  width: 30rem;
+  margin-left: 2rem;
+  height: 25px;
 }
 
 .slider-container .slider.slider-horizontal .slider-track {
-	border-radius: 8px;
-  height: 20px;
+  border-radius: 8px;
+  height: 15px;
 }
 
 .slider-container .slider-track .slider-selection {
-	border-radius: 8px;
+  border-radius: 8px;
 }
 
 .slider-container .slider-handle {
-	width: 30px;
-	height: 30px;
+  width: 25px;
+  height: 25px;
+}
+
+.slider-container .slider-selection,
+.slider-container .slider-handle {
+  background-image: none;
+}
+
+.cost-slider .slider-selection {
+  background-color: @brand-pink;
+}
+
+.cost-slider .slider-handle {
+  background-color: @brand-pink-active;
+  // background: radial-gradient(center, @brand-pink-active, lighten(@brand-pink-active, 10%))
+}
+
+.benefit-slider .slider-selection {
+  background-color: @brand-blue;
+}
+
+.benefit-slider .slider-handle {
+  background-color: @brand-blue-active;
 }
 
 // feature item
 .component-poker-card {
-	border-radius: 0.8rem;
-	width: 100%;
-	height: 80%;
-	margin: 0 auto;
+  border-radius: 0.8rem;
+  width: 100%;
+  height: 80%;
+  margin: 0 auto;
   background-color: white;
 
   .poker-feature-name {
-  	text-align: center;
-  	font-size: 2.4rem;
-  	font-weight: 400;
-  	color: black;
-  	margin: 2rem;
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: black;
+    margin: 2rem;
   }
 
   .poker-feature-bottom {
-  	padding: 0 1rem;
+    padding: 0 1rem;
   }
 
   .poker-input-left,
   .poker-input-right {
-  	color: @grey5;
-  	margin-right: 0.5rem;
+    color: @grey5;
+    margin-right: 0.5rem;
   }
 }
