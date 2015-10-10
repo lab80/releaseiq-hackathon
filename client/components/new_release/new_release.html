@@ -1,5 +1,5 @@
 <template name="newRelease">
-  <h2>Create a Planning Event</h2>
+  <h2 class="new-release-form-title">Create a Planning Event</h2>
   <div class="new-release-subheader">No planning event scheduled. Please create one below.</div>
 
   <form class="new-release-form-container" id="new-release-form">
@@ -9,7 +9,7 @@
     </div>
     <div class="form-group">
       <label>Description</label>
-      <textarea name="description" form="new-release-form" class="form-control" rows="3"></textarea>
+      <textarea name="description" form="new-release-form" class="form-control new-release-desc" rows="3"></textarea>
     </div>
     <div class="form-group">
       <label>Start Time</label>
@@ -21,12 +21,14 @@
     </div>
     <div class="form-group">
       <label>Feature Candidates</label>
-      <select name="featureCandidate" form="new-release-form">
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="mercedes">Mercedes</option>
-        <option value="audi">Audi</option>
-      </select>
+      <div class="feature-candidates-container">
+        <select class="form-control" name="featureCandidate" form="new-release-form">
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="mercedes">Mercedes</option>
+          <option value="audi">Audi</option>
+        </select>
+      </div>
     </div>
   </form>
 </template>
