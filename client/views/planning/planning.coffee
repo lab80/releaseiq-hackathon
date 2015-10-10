@@ -35,13 +35,13 @@ Template.planning.helpers(
   _ready: ->
     Telescope.subsManager.ready()
 
+  _heroData: -> Fixtures.getData("sectionHero", "Planning")
+
   _isPlanning: -> IQ.Releases.find({state: IQ.Releases.STATE.PLANNING}).count() > 0
 
   _isBuilding: -> IQ.Releases.find({state: IQ.Releases.STATE.BUILDING}).count() > 0
 
   _isBuilder: -> _isBuilder()
-
-  _heroData: -> Fixtures.getData("sectionHero", "Normal")
 
   _featureData: ->
     #Fixtures.getData("featureGrid", "Normal")
