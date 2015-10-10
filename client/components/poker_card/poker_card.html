@@ -23,6 +23,32 @@
       <div class="poker-feature-name">{{featureName}}</div>
       <div class="poker-feature-bottom">
         {{#if isBuilder}}
+          <table class="slider-container">
+            <tr>
+            <td class="slider-tag">Cost</td>
+            <td><input class="js-cost-input slider-input" type="text"/></td>
+            </tr>
+            <tr>
+            <td class="slider-tag">Benefit</td>
+            <td><input class="js-benefit-input slider-input" type="text"/></td>
+            </tr>
+          </table>
+        {{else}}
+          <table class="slider-container">
+            <tr>
+            <td class="slider-tag">Cost</td>
+            <td><input class="js-cost-input slider-input" type="text"/></td>
+            </tr>
+          </table>
+        {{/if}}
+      </div>
+    {{else}}
+      Loading...
+    {{/if}}
+  </div>
+</template>
+
+<!-- 
           <div class="poker-feature-cost">
             <span class="poker-input-left">
               Cost 
@@ -47,11 +73,9 @@
             <span clss="poker-input-right">
               <input class="js-benefit-input slider-input" type="text"/>
             </span>
-          </div>
-        {{/if}}
-      </div>
-    {{else}}
+          </div> -->
+        <!-- {{/if}} -->
+      <!-- </div> -->
+<!--     {{else}}
       Loading...
-    {{/if}}
-  </div>
-</template>
+    {{/if}} -->
