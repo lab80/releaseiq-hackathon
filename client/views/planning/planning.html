@@ -1,4 +1,39 @@
 <template name="planning">
+  <div class="planning-container">
+    <div class="planning-header-container">
+      <div class="planning-header page-width">
+        <div class="header-left">
+          [Join Now] Planning event
+        </div>
+        <div class="header-right">
+          Ending in 16h:09:45
+        </div>
+      </div>
+    </div>
+
+    <div class="planning-subheader page-width">
+
+      <!-- {{> sectionHero _heroData}} -->
+
+      <div class="planning-release-name">
+        Hello Money "Firecat"
+      </div>
+
+      <div class="planning-subtext">
+        Prioritize feature candidates for next release
+      </div>
+    </div>
+
+    <div class="two-by-two">
+      {{> featureGrid _featureData}}
+      <div class="component-poker-card-carousel">
+        {{> pokerCards _cardsData}}
+      </div>
+    </div>
+  </div>
+
+<!-- FIXME: will integrate after styling a little -->
+<!-- 
   {{#if _isBuilding}}
     <div class="page-width">
       {{> sectionHero _heroData}}
@@ -17,5 +52,5 @@
         Come back
       {{/if}}
     {{/if}}
-  {{/if}}
+  {{/if}} -->
 </template>

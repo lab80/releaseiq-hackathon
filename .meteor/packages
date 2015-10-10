@@ -8,15 +8,11 @@
 telescope:core
 
 ############ Telescope Packages (Optional) ############
-
-telescope:migrations
 telescope:scoring
 telescope:search
 telescope:theme-base
 telescope:theme-hubble
 telescope:debug
-telescope:getting-started
-
 # telescope:api
 # telescope:daily
 # telescope:datetimepicker
@@ -45,3 +41,4 @@ coffeescript
 lab80:fixtures
 d3js:d3
 mizzao:bootstrap-3
+momentjs:moment
