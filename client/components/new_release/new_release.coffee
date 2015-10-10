@@ -14,8 +14,7 @@ Template.newRelease.events(
       numCandidates: template.$("#num-candidates").val()
 
     Meteor.call("createRelease", formData, () ->
-      # FIXME: rediect me to somewhere
-      alert("success!")
+      FlowRouter.go('/releases')
     )
 )
 
