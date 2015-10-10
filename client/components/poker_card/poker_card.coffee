@@ -43,7 +43,7 @@ Template.pokerCards.helpers(
     this.selected == idx
 
   features: () ->
-    _cards()
+    _cards(Meteor.user()?.isAdmin)
 )
 
 Fixtures.addFixture("pokerCard", ""
@@ -60,7 +60,7 @@ Fixtures.addFixture("pokerCard", ""
     isBuilder: true
 )
 
-_cards = (isBuilder) -> 
+_cards = (isBuilder) ->
   mockCards = _.map(_.range(5), (idx) ->
     featureName: "Feature #{idx} (#{_.random(0, 5)}, #{_.random(0, 5)})"
     cost: _.random(0, 5)
