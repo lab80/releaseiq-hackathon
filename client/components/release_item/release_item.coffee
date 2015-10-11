@@ -17,19 +17,6 @@ Template.releaseItem.helpers(
     moment(this.launched?.start).format("ddd L")
 )
 
-Template.featureItem.helpers(
-  _featureBCRatio: -> this.benefit / this.cost
-)
-
-
-Fixtures.addFixture("featureItem", ""
-  Loading: {}
-  Normal:
-    featureName: "Feature 1"
-    cost: 4
-    benefit: 5
-)
-
 _randomFeatures = (n) ->
   _.map(_.range(n), (idx) ->
     {featureName: "feature#{idx}", cost: _.random(1, 5), benefit: _.random(1, 5)}
