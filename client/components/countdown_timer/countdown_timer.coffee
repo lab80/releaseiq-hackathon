@@ -1,6 +1,19 @@
+Template.countdownTimer.onCreated(->
+  @now = new ReactiveVar((new Date()).getTime())
+  self = this
+  @handle = Meteor.setInterval(->
+    self.now.set((new Date()).getTime())
+  , 1000)
+)
+
+Template.countdownTimer.onDestroyed(->
+  Meteor.clearInterval(@handle)
+)
+
 Template.countdownTimer.helpers(
   _endingFormatted: ->
-    moment(@endingAt).fromNow()
+    diff = @endingAt.getTime() - Template.instance().now.get()
+    moment.utc(diff).format("HH[h]:mm:ss")
 )
 
 Fixtures.addFixture("countdownTimer", "",
