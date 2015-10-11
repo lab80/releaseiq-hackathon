@@ -25,8 +25,13 @@ To be honest, engaging the community in the development process is something tha
 
 ## Demo
 
-We made a demo video: http://releaseiq.com/video
-We also have a live demo: http://releaseiq.com
+![releaseiq-shot](https://cloud.githubusercontent.com/assets/488689/10415303/6b5effe2-702e-11e5-8aec-182de2ff25fe.png)
+
+We made a demo video: 
+ - http://releaseiq.com/video
+
+We also have a live demo:
+ - http://releaseiq.com
 
 ## Setting it up
 
