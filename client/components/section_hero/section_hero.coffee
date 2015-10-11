@@ -8,5 +8,5 @@ Fixtures.addFixture("sectionHero", ""
     pageTitleCaption: "Prioritize feature candidates for next release"
   Releases:
     pageTitle: "All Releases"
-    pageTitleCaption: "X Total / Y in Progress"
+    pageTitleCaption: "FIXME Total / FIXME in Progress"
 )

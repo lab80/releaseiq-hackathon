@@ -3,7 +3,9 @@
     {{#if _isPlanning}} <!-- PLANNING  -->
       {{> planning}}
       {{#if _isBuilder}}
-        {{> buildReleaseForm _buildReleaseFormData}}
+        <div class="page-width-small">
+          {{> buildReleaseForm _buildReleaseFormData}}
+        </div>
       {{/if}}
     {{else}} <!-- PLAN NOT STARTED  -->
       {{> sectionHero
