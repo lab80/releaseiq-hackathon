@@ -47,7 +47,7 @@
     height: 100%;
     margin: 0;
   }
-  .menu-top-level&:hover a {
+  .menu-top-level:hover a {
     background-color: @grey1;
     color: @brand-pink;
     cursor: pointer;
@@ -56,6 +56,19 @@
     .nav-text;
     position: relative;
     top: 17px;
+    bottom: 0;
+    font-size: 15px;
+    cursor: pointer;
+    &:hover {
+      background-color: @grey1;
+      color: @brand-pink;
+      text-decoration: none;
+    }
+  }
+  .signin-signup a {
+    .nav-text;
+    position: relative;
+    top: 3px;
     bottom: 0;
     font-size: 15px;
     cursor: pointer;
