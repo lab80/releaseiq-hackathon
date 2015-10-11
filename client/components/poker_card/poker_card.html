@@ -21,20 +21,20 @@
   <div class="component-poker-card">
     <table class="vertical-align"><tr><td>
     {{#if featureName}}
-      <p class="poker-feature-count">{{featureIdx}} of {{featureCount}}</p>
+      <p class="poker-feature-count">{{_displayIdx}} of {{featureCount}}</p>
       <h2 class="poker-feature-name">{{featureName}}</h2>
       <div class="poker-feature-bottom">
         {{#if isBuilder}}
           <div class="slider-container">
-            <div class="slider-tag col-xs-2">Cost</div>
-            <div class="cost-slider col-xs-10">
+            <div class="slider-tag col-xs-3">Cost</div>
+            <div class="cost-slider col-xs-9">
               <input class="js-cost-input slider-input" type="text"/>
             </div>
           </div>
         {{/if}}
         <div class="slider-container">
-          <div class="slider-tag col-xs-2">Benefit</div>
-          <div class="benefit-slider col-xs-10">
+          <div class="slider-tag col-xs-3">Benefit</div>
+          <div class="benefit-slider col-xs-9">
             <input class="js-benefit-input slider-input" type="text"/>
           </div>
         </div>

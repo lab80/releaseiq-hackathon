@@ -2,17 +2,25 @@
   position: absolute;
   left: 50%;
   bottom: -10rem;
-  width: 50rem;
   height: 100%;
-  margin-left: -200px;
+  width: 260px;
+  margin-left: -130px;
   z-index: 1;
-  border-radius: 0.8rem;
+  border-radius: 1.0rem;
   background-color: white;
   border: 3px solid @brand-blue;
   box-shadow: 0 1rem 10rem rgba(0, 0, 0, 0.8);
+  @media @desktop {
+    width: 50rem;
+    margin-left: -25rem;
+  }
+  .item {
+    background-color: white;
+    border-radius: 0.8rem;
+  }
   .carousel-control {
     position: absolute;
-    top: 7rem;
+    top: 3rem;
     bottom: auto;
     width: 5rem;
     height: 5rem;
@@ -20,6 +28,9 @@
     color: white;
     cursor: pointer;
     background-image: none;
+    @media @desktop {
+      top: 7rem;
+    }
   }
   .right.carousel-control {
     margin-right: -6rem;
@@ -39,11 +50,9 @@
 }
 // feature item
 .component-poker-card {
-  border-radius: 0.8rem;
   width: 100%;
   height: 100%;
   margin: 0 auto;
-  background-color: white;
   .poker-feature-count {
     position: relative;
     top: -1.5rem;
@@ -64,8 +73,11 @@
     margin-right: 0.5rem;
   }
   .poker-feature-bottom {
-    width: 90%;
+    width: 96%;
     margin: 0 auto;
+    @media @desktop {
+      width: 90%;
+    }
     .slider-container {
       .horizontal-flush;
       margin-top: 2rem;

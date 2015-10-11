@@ -2,6 +2,8 @@ Template.pokerCard.helpers(
   _ready: ->
     console.log "ready", Telescope.subsManager.ready()
     Telescope.subsManager.ready()
+  _displayIdx: ->
+    @featureIdx + 1
 )
 Template.pokerCard.events(
   "slideStop .js-cost-input": (event, template) ->
@@ -40,9 +42,8 @@ Template.pokerCards.events(
 
 Template.pokerCards.helpers(
   _isSelected: (idx) ->
-    this.selected == idx
-
-  features: () ->
+    this.selectedIdx == idx
+  features: ->
     this.pokerCards
 )
 
