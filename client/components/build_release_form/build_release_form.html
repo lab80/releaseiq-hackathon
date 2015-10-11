@@ -13,19 +13,19 @@
       <h3 class="page-h3 release-item-name">{{name}}</h3>
       <h4 class="release-item-description">{{_releaseDescription}}</h4>
 
-      <!-- FIXME: :( takes too much time for me to do in div :( -->
-      <table class="features">
-        <tr>
-          <th>Feature</th>
-          <th>Cost</th>
-          <th>Benefit</th>
-          <th>B/C Ratio</th>
-        </tr>
+      <div class="features-table">
+        <div class="feature-thead desktop">
+          <div class="feature-name">Feature</div>
+          <div class="feature-cost">Cost</div>
+          <div class="feature-benefit">Benefit</div>
+          <div class="feature-bc-ratio">B/C Ratio</div>
+        </div>
 
         {{#each feature in planning.features}}
           {{> buildFeatureRow feature}}
         {{/each}}
-      </table>
+      </div>
+
     </div>
 
     <div class="narrow-form-groups">
@@ -52,13 +52,13 @@
 </template>
 
 <template name="buildFeatureRow">
-  <tr>
-    <td>
+  <div class="feature-row">
+    <div class="feature-name">
       <input type="checkbox" name={{featureName}} id={{_id}} />
       {{featureName}}
-    </td>
-    <td>{{cost}}</td>
-    <td>{{benefit}}</td>
-    <td>{{_featureBCRatio}}</td>
-  </tr>
+    </div>
+    <div class="feature-cost"><span class="mobile">Cost:&nbsp;</span>{{cost}}</div>
+    <div class="feature-benefit"><span class="mobile">Benefit:&nbsp;</span>{{benefit}}</div>
+    <div class="feature-bc-ratio"><span class="mobile">B/C Ratio:&nbsp;</span>{{_featureBCRatio}}</div>
+  </div>
 </template>
