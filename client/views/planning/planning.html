@@ -19,7 +19,9 @@
       {{/if}}
     {{else}} <!-- NO PLAN AT ALL -->
       {{#if _isBuilder}}
-        {{> newRelease}}
+        <div class="page-width-small">
+          {{> newRelease}}
+        </div>
       {{else}}
         {{> sectionHero
           pageTitle="Come Back Soon"
