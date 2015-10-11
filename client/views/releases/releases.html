@@ -2,9 +2,13 @@
   <div class="page-width-small">
     {{> sectionHero _heroData}}
     <div class="releases-list">
-      {{#each _buildingReleases}}
-        {{> releaseItem}}
+      {{#each release in _buildingReleases}}
+        {{> releaseItem release}}
+        {{#if _isBuilder}}
+          {{> launchReleaseForm _launchReleaseFormData}}
+        {{/if}}
       {{/each}}
+
       {{#each _launchedReleases}}
         {{> releaseItem}}
       {{/each}}

@@ -22,9 +22,8 @@ Template.buildReleaseForm.events(
       numCandidates: template.$("#num-candidates").val()
       features: featureIds
 
-    console.log "formData", formData
-
     Meteor.call("startBuilding", formData)
+    FlowRouter.go("/releases")
 )
 
 Template.buildFeatureRow.helpers(

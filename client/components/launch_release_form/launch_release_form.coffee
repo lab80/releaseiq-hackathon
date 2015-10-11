@@ -6,5 +6,5 @@ Template.launchReleaseForm.events(
       description: template.$("#description").val()
 
     Meteor.call("launchRelease", formData)
-    FlowRouter.go("/releases")
+    FlowRouter.go("/backlog")
 )

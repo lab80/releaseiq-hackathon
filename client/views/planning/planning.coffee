@@ -2,7 +2,6 @@ _isBuilder = ->
   user = Meteor.user()
   (user and user.isAdmin) == true
 
-
 _features = ->
   posts = Posts.find().fetch()
   isBuilder = _isBuilder()
@@ -69,11 +68,6 @@ Template.planningWrapper.helpers(
   _isBuilding: -> IQ.Releases.find({state: IQ.Releases.STATE.BUILDING}).count() > 0
 
   _isBuilder: -> _isBuilder()
-
-  _launchReleaseFormData: ->
-    buildingRelease = IQ.Releases.findOne({state: IQ.Releases.STATE.BUILDING})
-    data =
-      releaseId: buildingRelease._id
 
   _buildReleaseFormData: ->
     planningRelease = IQ.Releases.findOne({state: IQ.Releases.STATE.PLANNING})

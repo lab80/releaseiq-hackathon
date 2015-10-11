@@ -16,9 +16,6 @@
   {{else}}
     {{#if _isBuilding}} <!-- BUILDING -->
       {{> planning}} <!-- FIXME: should be static!!! -->
-      {{#if _isBuilder}}
-        {{> launchReleaseForm _launchReleaseFormData}}
-      {{/if}}
     {{else}} <!-- NO PLAN AT ALL -->
       {{#if _isBuilder}}
         <div class="page-width-small">
