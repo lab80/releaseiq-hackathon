@@ -1,48 +1,108 @@
-.template-backlog {
+.template-backlog, .template-postPage {
   .posts-list {
+    width: 100%;
     max-width: 900px;
-    margin: 0 auto 6rem auto;
+    margin: 0 auto 2rem auto;
     padding-top: 2rem;
     border-top: 1px solid @grey3;
-    .post {
-      margin-bottom: 1.5rem;
-      padding: 1rem 0 1rem 1rem;
-      border-radius: 0.8rem;
-      border: none;
-      cursor: pointer;
-      @media @desktop {
-        padding: 2rem 0 2rem 2rem;
-      }
-      &:hover {
-        background-color: @grey2;
-        .post-title, .upvote-link {
-          color: @grey10 !important;
-        }
-      }
+  }
+  .post {
+    margin-bottom: 1.5rem;
+    padding: 1rem 0 1rem 1rem;
+    border-radius: 0.8rem;
+    border: none;
+    @media @desktop {
+      padding: 2rem 0 2rem 2rem;
     }
-    .post-vote .vote-actions {
-      border: none;
-      .upvote-link {
-        color: @grey8;
-        &:hover {
+    &:hover {
+      background-color: @grey2;
+      .post-title, .post-vote .upvote-link {
+        color: @grey10;
+      }
+      .vote-actions:hover {
+        .post-vote .upvote-link {
           color: @brand-pink;
         }
       }
-      .fa-fw {
-        width: 2rem;
-        font-size: 1.8rem;
+    }
+  }
+  .post-vote .vote-actions {
+    border: none;
+    &:hover .upvote-link {
+      color: @brand-pink;
+    }
+    .upvote-link {
+      color: @grey8;
+    }
+    .fa-fw {
+      width: 2rem;
+      font-size: 1.8rem;
+    }
+  }
+  .post-title {
+    .page-h3;
+    cursor: pointer;
+    &:hover {
+      color: @brand-pink;
+    }
+    &:visited {
+      color: @brand-blue;
+    }
+  }
+  .post-rank span {
+    color: @grey4;
+    font-size: 2.4rem;
+  }
+  .post-actions .icon {
+    border-color: @brand-blue;
+    color: @brand-blue;
+  }
+  // After you click a request
+  .single-post {
+    .posts .post {
+      margin-top: 2rem;
+      .post-heading .post-title {
+        .page-h3;
       }
     }
-    .post-title {
-      .page-h3;
+    .post-body {
+      color: @grey8;
+      padding: 0;
+      h3 {
+        font-size: 0.9em;
+      }
+      p {
+        font-size: 1.6rem;
+      }
     }
-    .post-rank span {
-      color: @grey4;
-      font-size: 2.4rem;
+    .comment-form {
+      button {
+        .btn-outline-blue;
+        background-color: white;
+      }
     }
-    .post-actions .icon {
-      border-color: @brand-blue;
-      color: @brand-blue;
+    .posts .post,
+    .post-body,
+    .comment-form,
+    .comment-list {
+      .page-width-small;
+      box-shadow: none;
+    }
+    .comment-content,
+    .comment-actions .upvote,
+    .comment-actions, .downvote {
+      box-shadow: none;
+    }
+    .comment-content .comment-username {
+      padding: 1px 0;
+      background-color: transparent;
+      color: @grey7;
+    }
+    .comment {
+      margin-left: 0;
+    }
+    .comment-text p {
+      font-size: 1.6rem;
     }
   }
 }
