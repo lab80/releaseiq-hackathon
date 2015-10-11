@@ -1,28 +1,21 @@
 Template.buildReleaseForm.onRendered(->
-  _startPicker = new Pikaday({ field: $('#start-time')[0] });
-  _endPicker = new Pikaday({ field: $('#end-time')[0] });
+  _startPicker = new Pikaday({ field: $('#start-time')[0] })
+  _endPicker = new Pikaday({ field: $('#end-time')[0] })
 )
 
 Template.buildReleaseForm.helpers(
   _duration: -> "24 hours" #FIXME
-
-  features: -> this.features
-
-  releaseName: -> "What is release name" #FIXME
 )
 
 Template.buildReleaseForm.events(
   "submit #build-release-form": (event, template) ->
     event.preventDefault()
 
-    # FIXME: should choose the exact one that the user is looking at
-    planningRelease = IQ.Releases.findOne({state: IQ.Releases.STATE.PLANNING})
-
     selectedFeatures = $("input[type=checkbox]:checked")
     featureIds = _.map(selectedFeatures, (f) -> $(f).attr("id"))
 
     formData =
-      releaseId: planningRelease._id #FIXME later
+      releaseId: template.data.releaseId
       desc: template.$("#description").val()
       startTime: new Date(template.$("#start-time").val())
       endTime: new Date(template.$("#end-time").val())
@@ -46,12 +39,13 @@ _features = (n) ->
 Fixtures.addFixture("buildReleaseForm", ""
   Loading: {}
   Normal:
+    releaseId: "xxx"
     userCount: 72
     builderCount: 18
     name: "Release name"
     planning:
-      start: new Date()
       features: _features(3)
+      start: new Date()
     build:
       start: new Date()
 )

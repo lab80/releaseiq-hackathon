@@ -48,6 +48,16 @@ Template.planning.helpers(
   _featureData: ->
     features: _features()
 
+  _buildFormData: ->
+    # FIXME: should choose the exact one that the user is looking at
+    planningRelease = IQ.Releases.findOne({state: IQ.Releases.STATE.PLANNING})
+    data =
+      releaseId: planningRelease._id
+      userCount: 72
+      builderCount: 18
+      planning:
+        features: _features()
+
   _cardData: ->
     features = _features()
     return {} if _.isEmpty(features)

@@ -38,7 +38,7 @@ Meteor.methods(
       features: formData.features,
       description: formData.desc
 
-    return IQ.Releases.update(formData.releaseId, 
+    return IQ.Releases.update(formData.releaseId,
       $set:
         state: IQ.Releases.BUILDING
         build: buildPhase
