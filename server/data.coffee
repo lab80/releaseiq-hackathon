@@ -14,6 +14,11 @@
         postedAt: postedAt
         body: feature.description.trim()
         title:  feature.name.trim()
-        userId: user._id
+        userId: user?._id
       Posts.submit(post)
     )
+
+Meteor.startup(->
+  if Posts.find().count() == 0
+    DevelopmentFixtures.addFeatures()
+)
