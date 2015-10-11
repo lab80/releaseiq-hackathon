@@ -25,7 +25,7 @@ Template.releases.helpers(
   _pageTitleCaption: ->
     buildingCount = _buildingReleases().count()
     launchedCount = _launchedReleases().count()
-    "#{buildingCount + launchedCount} Total / #{buildingCount} in Progress"
+    "#{buildingCount + launchedCount} Total / #{buildingCount} In Progress"
 
   _launchReleaseFormData: ->
     buildingRelease = IQ.Releases.findOne({state: IQ.Releases.STATE.BUILDING})
