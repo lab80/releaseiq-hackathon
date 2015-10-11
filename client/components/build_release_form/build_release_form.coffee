@@ -22,7 +22,7 @@ Template.buildReleaseForm.events(
       numCandidates: template.$("#num-candidates").val()
       features: featureIds
 
-    Meteor.call("updateRelease", formData)
+    Meteor.call("startBuilding", formData)
 )
 
 Template.buildFeatureRow.helpers(

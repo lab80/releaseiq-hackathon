@@ -27,7 +27,6 @@ _terms = ->
 Template.planning.onCreated(->
   @selectedIdx = new ReactiveVar(0)
   Telescope.subsManager.subscribe("postsList", _terms())
-  Telescope.subsManager.subscribe("iq_releases")
 )
 Template.planning.events(
   "click .dot circle": (event, template) ->
@@ -38,6 +37,23 @@ Template.planning.events(
     Template.instance().selectedIdx.set(newIndex)
 )
 Template.planning.helpers(
+  _featureData: ->
+    data =
+      selectedIdx: Template.instance().selectedIdx.get()
+      features: _features()
+
+  _cardsData: ->
+    features = _features()
+    data =
+      selectedIdx: Template.instance().selectedIdx.get()
+      pokerCards: features
+)
+
+Template.planningWrapper.onCreated(->
+  Telescope.subsManager.subscribe("iq_releases")
+)
+
+Template.planningWrapper.helpers(
   _ready: ->
     Telescope.subsManager.ready()
 
@@ -54,30 +70,14 @@ Template.planning.helpers(
 
   _isBuilder: -> _isBuilder()
 
-  _featureData: ->
-    data =
-      selectedIdx: Template.instance().selectedIdx.get()
-      features: _features()
-
-  _buildFormData: ->
+  _buildReleaseFormData: ->
     # FIXME: should choose the exact one that the user is looking at
 
-    planningRelease = IQ.Releases.findOne({state: IQ.Releases.STATE.PLANNING})
+    buildingRelease = IQ.Releases.findOne({state: IQ.Releases.STATE.BUILDING})
     data =
-      releaseId: planningRelease._id
+      releaseId: buildingRelease._id
       userCount: 72
       builderCount: 18
       planning:
         features: _features()
-
-  _cardData: ->
-    features = _features()
-    return {} if _.isEmpty(features)
-    _.first(features)
-
-  _cardsData: ->
-    features = _features()
-    data =
-      selectedIdx: Template.instance().selectedIdx.get()
-      pokerCards: features
 )

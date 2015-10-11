@@ -1,3 +1,42 @@
+<template name="planningWrapper">
+  {{#if _isPlanThere}}
+    {{#if _isPlanning}} <!-- PLANNING  -->
+      {{> planning}}
+      {{#if _isBuilder}}
+        {{> buildReleaseForm _buildReleaseFormData}}
+      {{/if}}
+    {{else}} <!-- PLAN NOT STARTED  -->
+      {{> sectionHero
+        pageTitle="Next Event in X Days"
+        pageTitleCaption="1 planning event scheduled."
+      }}
+    {{/if}}
+  {{else}}
+    {{#if _isBuilding}} <!-- BUILDING -->
+      {{> planning}} <!-- FIXME: should be static!!! -->
+      {{#if _isBuilder}}
+        {{> launchReleaseForm _launchReleaseFormData}}
+      {{/if}}
+    {{else}} <!-- NO PLAN AT ALL -->
+      {{#if _isBuilder}}
+        {{> newRelease}}
+      {{else}}
+        {{> sectionHero
+          pageTitle="Come Back Soon"
+          pageTitleCaption="We're hard at work prepping for our next release"
+        }}
+      {{/if}}
+    {{/if}}
+  {{/if}}
+</template>
+
+<template name="planningSummary">
+  {{> sectionHero
+    pageTitle="Static 2x2 Matrix"
+    pageTitleCaption="Event finished. Summary below."
+  }}
+</template>
+
 <template name="planning">
   <div class="planning-container">
     <div class="planning-header-container gradient">
@@ -20,36 +59,5 @@
       {{> featureGrid _featureData}}
       {{> pokerCards _cardsData}}
     </div>
-
-    <!-- FIXME: turning the condition off for now -->
-    {{#if _isPlanning}}
-      <div class="build-release-container page-width">
-        {{> buildReleaseForm _buildFormData}}
-      </div>
-    {{/if}}
   </div>
-
-
-<!-- FIXME -->
-  {{#if _isPlanThere}}
-    {{#if _isPlanning}} <!-- PLANNING  -->
-      User and Builder will see the same 2x2 matrix
-    {{else}} <!-- PLAN NOT STARTED  -->
-      User and Builder will see the same NEXT EVENT IN X DAYS MESSAGE
-    {{/if}}
-  {{else}}
-    {{#if _isBuilding}} <!-- BUILDING -->
-      {{#if _isBuilder}} <!-- BUILDER WILL SEE 2X2+SUMMARY+CHECKBOX+FORM  -->
-        <!-- 2X2 MATRIX + SUMMARY + CHECKBOX + FORM -->
-      {{else}} <!-- USER WILL SEE 2X2+SUMMARY -->
-        2X2 MATRIX + SUMMARY
-      {{/if}}
-    {{else}} <!-- NO PLAN AT ALL -->
-      {{#if _isBuilder}} <!-- BUILDER WILL SEE NEW RELEASE FORM  -->
-        CREATE A PLANNING EVENT
-      {{else}} <!-- USER WILL SEE COME BACK MESSAGE  -->
-        COME BACK LATER
-      {{/if}}
-    {{/if}}
-  {{/if}}
 </template>

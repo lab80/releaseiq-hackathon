@@ -2,7 +2,7 @@
 
 Meteor.methods(
   launchRelease: ->
-    return IQ.Releases.update({state: IQ.Releases.STATE.BUILDING}, {$set: {state: IQ.Releases.STATE.LAUNCHED}})
+    return IQ.Releases.update({state: IQ.Releases.STATE.BUILDING}, {$set: {state: IQ.Releases.STATE.LAUNCHED}}, {multi: true})
 
   createRelease: (formData) ->
     #FIXME: filter the features with formData.numCandidates and cost/benefit scores
@@ -15,7 +15,7 @@ Meteor.methods(
       description: formData.desc
 
     build =
-      start: formData.startTime
+      start: formData.endTime
       features: []
       description: ""
 
@@ -28,11 +28,13 @@ Meteor.methods(
       planning: planning,
       build: build
 
+    console.log "release", release
+
     return IQ.Releases.insert(
       release
     )
 
-  updateRelease: (formData) ->
+  startBuilding: (formData) ->
     buildPhase =
       start: formData.startTime,
       features: formData.features,
