@@ -5,8 +5,8 @@ Template.releaseItem.helpers(
     posts = Posts.find({_id: {$in: this[this.state]?.features}}).fetch()
     features = _.map(posts, (p) ->
       featureName: p.title
-      cost: p.aggregateCost
-      benefit: p.aggregateBenefit
+      cost: p.aggregateCost or 1
+      benefit: p.aggregateBenefit or 1
     )
     features
 
