@@ -39,7 +39,11 @@ Template.planning.helpers(
 
   _isPlanning: ->
     release = IQ.Releases.findOne({state: IQ.Releases.STATE.PLANNING})
-    release[IQ.Releases.STATE.PLANNING].start < new Date()
+    if (release && release[IQ.Releases.STATE.PLANNING]) 
+      release[IQ.Releases.STATE.PLANNING].start > new Date()  
+    else
+      false
+    
 
   _isBuilding: -> IQ.Releases.find({state: IQ.Releases.STATE.BUILDING}).count() > 0
 
