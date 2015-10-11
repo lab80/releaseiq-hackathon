@@ -1,9 +1,12 @@
 .two-by-two {
   .horizontal-flush;
-  .page-width;
-  height: 60rem;
+  height: 50rem;
   margin-bottom: 20rem;
   position: relative;
+  @media @desktop {
+    .page-width;
+    height: 60rem;
+  }
 }
 .planning-header-container {
   background-color: grey;
@@ -31,9 +34,11 @@
 .component-poker-card-carousel {
   position: absolute;
   left: 50%;
-  bottom: -6rem;
-  width: 50rem;
+  bottom: -10rem;
   height: 22rem;
-  margin-left: -25rem;
   background: rgba(0, 0, 0, 0.3);
+  @media @desktop {
+    bottom: -12rem;
+    height: 26rem;
+  }
 }

@@ -79,27 +79,59 @@ Template.featureGrid.onRendered(->
 
   canvas.append("text")
     .attr("text-anchor", "middle")
+    .attr('class', 'desktop')
     .attr("x", .25*width)
     .attr("y", .25*height)
     .text((d) -> "High Cost x High Benefit")
 
   canvas.append("text")
     .attr("text-anchor", "middle")
+    .attr('class', 'desktop')
     .attr("x", .75*width)
     .attr("y", .25*height)
     .text((d) -> "Low Cost x High Benefit")
 
   canvas.append("text")
     .attr("text-anchor", "middle")
+    .attr('class', 'desktop')
     .attr("x", .25*width)
     .attr("y", .75*height)
     .text((d) -> "High Cost x Low Benefit")
 
   canvas.append("text")
     .attr("text-anchor", "middle")
+    .attr('class', 'desktop')
     .attr("x", .75*width)
     .attr("y", .75*height)
     .text((d) -> "Low Cost x Low Benefit")
+
+  canvas.append("text")
+    .attr("text-anchor", "middle")
+    .attr('class', 'mobile')
+    .attr("x", .25*width)
+    .attr("y", .25*height)
+    .text((d) -> "Expensive")
+
+  canvas.append("text")
+    .attr("text-anchor", "middle")
+    .attr('class', 'mobile')
+    .attr("x", .75*width)
+    .attr("y", .25*height)
+    .text((d) -> "Good")
+
+  canvas.append("text")
+    .attr("text-anchor", "middle")
+    .attr('class', 'mobile')
+    .attr("x", .25*width)
+    .attr("y", .75*height)
+    .text((d) -> "Bad")
+
+  canvas.append("text")
+    .attr("text-anchor", "middle")
+    .attr('class', 'mobile')
+    .attr("x", .75*width)
+    .attr("y", .75*height)
+    .text((d) -> "Cheap")
 
   @autorun(->
     # Re-render the chart reactively
