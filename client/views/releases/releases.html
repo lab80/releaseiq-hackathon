@@ -1,6 +1,9 @@
 <template name="releases">
   <div class="page-width-small">
-    {{> sectionHero _heroData}}
+    {{> sectionHero
+      pageTitle="All Releases"
+      pageTitleCaption=_pageTitleCaption
+    }}
     <div class="releases-list">
       {{#each release in _buildingReleases}}
         {{> releaseItem release}}

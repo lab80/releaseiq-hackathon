@@ -46,13 +46,13 @@
           [Join Now] Planning event
         </div>
         <div class="header-right">
-          {{> countdownTimer endingTime}}
+          {{> countdownTimer endingAt=_countdownTime}}
         </div>
       </div>
     </div>
 
     {{> sectionHero
-      pageTitle="Hello Money Firecat"
+      pageTitle=_releaseName
       pageTitleCaption="Prioritize feature candidates for next release"
     }}
 

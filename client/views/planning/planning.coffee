@@ -36,6 +36,10 @@ Template.planning.events(
     Template.instance().selectedIdx.set(newIndex)
 )
 Template.planning.helpers(
+  _releaseName: ->
+    release = IQ.Releases.findOne({state: IQ.Releases.STATE.PLANNING})
+    release.name
+
   _featureData: ->
     data =
       selectedIdx: Template.instance().selectedIdx.get()
@@ -46,6 +50,10 @@ Template.planning.helpers(
     data =
       selectedIdx: Template.instance().selectedIdx.get()
       pokerCards: features
+
+  _countdownTime: ->
+    release = IQ.Releases.findOne({state: IQ.Releases.STATE.PLANNING})
+    release.build.start
 )
 
 Template.planningWrapper.onCreated(->
@@ -72,6 +80,7 @@ Template.planningWrapper.helpers(
   _buildReleaseFormData: ->
     planningRelease = IQ.Releases.findOne({state: IQ.Releases.STATE.PLANNING})
     data =
+      name: planningRelease.name
       releaseId: planningRelease._id
       userCount: 72
       builderCount: 18
