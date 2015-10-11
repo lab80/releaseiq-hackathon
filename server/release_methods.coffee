@@ -1,8 +1,15 @@
 @IQ or= {}
 
 Meteor.methods(
-  launchRelease: ->
-    return IQ.Releases.update({state: IQ.Releases.STATE.BUILDING}, {$set: {state: IQ.Releases.STATE.LAUNCHED}}, {multi: true})
+  launchRelease: (formData) ->
+    description = formData?.description or ""
+    return IQ.Releases.update(
+      {state: IQ.Releases.STATE.BUILDING}
+      {$set:
+        {state: IQ.Releases.STATE.LAUNCHED, "launch.description": description}
+      }
+      {multi: true}
+    )
 
   createRelease: (formData) ->
     #FIXME: filter the features with formData.numCandidates and cost/benefit scores
