@@ -2,11 +2,11 @@
   <div class="release-item-row {{state}}">
     <div class="release-item-row-header">
       <span class="release-item-start-date">
-        Monday 10/19 FIXME
+        {{_startDate}}
       </span>
       &ndash;
       <span class="release-item-end-date">
-        Friday 10/30 FIXME
+        {{_endDate}}
       </span>
     </div>
 
@@ -21,17 +21,10 @@
           <div class="feature-benefit">Benefit</div>
           <div class="feature-bc-ratio">B/C Ratio</div>
         </div>
-        <div class="feature-row">
-          <div class="feature-name">Feature Name</div>
-          <div class="feature-cost"><span class="mobile">Cost:&nbsp;</span>44</div>
-          <div class="feature-benefit"><span class="mobile">Benefit:&nbsp;</span>121</div>
-          <div class="feature-bc-ratio"><span class="mobile">B/C Ratio:&nbsp;</span>3.02</div>
-        </div>
 
-        {{#each _releaseFeatures}}
-          {{> featureItem}}
+        {{#each feature in _releaseFeatures}}
+          {{> featureItem feature}}
         {{/each}}
-
       </div>
     </div>
   </div>

@@ -1,10 +1,19 @@
+_terms = ->
+  terms = _.clone(FlowRouter.current().queryParams)
+  terms.enableCache = true
+  if Meteor.userId()
+    terms.userId = Meteor.userId()
+  if !terms.view
+    terms.view = Settings.get('defaultView', 'top')
+
 Template.releases.onCreated(->
   Telescope.subsManager.subscribe("iq_releases")
+  Telescope.subsManager.subscribe("postsList", _terms())
 )
 
-_buildingReleases = -> IQ.Releases.find({state: IQ.Releases.STATE.BUILDING})
+_buildingReleases = -> IQ.Releases.find({state: IQ.Releases.STATE.BUILDING}, {sort: {"building.start": -1}})
 
-_launchedReleases = -> IQ.Releases.find({state: IQ.Releases.STATE.LAUNCHED})
+_launchedReleases = -> IQ.Releases.find({state: IQ.Releases.STATE.LAUNCHED}, {sort: {"launched.start": -1}})
 
 Template.releases.helpers(
   _noPlanning: -> IQ.Releases.find({state: IQ.Releases.STATE.PLANNING}).count() == 0

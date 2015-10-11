@@ -28,10 +28,10 @@ IQ.Releases.attachSchema(new SimpleSchema(
     type: String
   planning:
     type: PhaseSchema
-  build:
+  building:
     type: PhaseSchema
     optional: true
-  launch:
+  launched:
     type: PhaseSchema
     optional: true
 ))

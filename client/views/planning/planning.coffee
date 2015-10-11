@@ -53,7 +53,7 @@ Template.planning.helpers(
 
   _countdownTime: ->
     release = IQ.Releases.findOne({state: IQ.Releases.STATE.PLANNING})
-    release.build.start
+    release.building.start
 )
 
 Template.planningWrapper.onCreated(->

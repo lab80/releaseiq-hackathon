@@ -47,6 +47,6 @@ Fixtures.addFixture("buildReleaseForm", ""
     planning:
       features: _features(3)
       start: new Date()
-    build:
+    building:
       start: new Date()
 )

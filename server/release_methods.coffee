@@ -2,11 +2,16 @@
 
 Meteor.methods(
   launchRelease: (formData) ->
-    description = formData?.description or ""
+    #FIXME:!@!@
+    build = IQ.Releases.findOne({state: IQ.Releases.STATE.BUILDING})
+    launched =
+      start: new Date()
+      description: formData?.description or ""
+      features: _.clone(build.building.features)
     return IQ.Releases.update(
       {state: IQ.Releases.STATE.BUILDING}
       {$set:
-        {state: IQ.Releases.STATE.LAUNCHED, "launch.description": description}
+        {state: IQ.Releases.STATE.LAUNCHED, launched: launched}
       }
       {multi: true}
     )
@@ -21,19 +26,19 @@ Meteor.methods(
       features: featureIds
       description: formData.desc
 
-    build =
+    building =
       start: formData.endTime
       features: []
       description: ""
 
-    state = if build.start < new Date() then IQ.Releases.STATE.BUILDING else IQ.Releases.STATE.PLANNING
+    state = if building.start < new Date() then IQ.Releases.STATE.BUILDING else IQ.Releases.STATE.PLANNING
 
     release =
       name: formData.name
       createdAt: new Date(),
       state: state
       planning: planning,
-      build: build
+      building: building
 
     console.log "release", release
 
@@ -50,6 +55,6 @@ Meteor.methods(
     return IQ.Releases.update(formData.releaseId,
       $set:
         state: IQ.Releases.STATE.BUILDING
-        build: buildPhase
+        building: buildPhase
     )
 )
