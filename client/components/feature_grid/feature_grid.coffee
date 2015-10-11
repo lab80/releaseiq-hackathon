@@ -104,7 +104,9 @@ Template.featureGrid.onRendered(->
   @autorun(->
     # Re-render the chart reactively
     foo = Session.get("foo")
-    posts = _getPosts()
+    data = Template.currentData()
+    posts = data.features
+    selectedIdx = data.selectedIdx
 
     xValue = (p) -> p.cost
     yValue = (p) -> p.benefit
@@ -129,10 +131,14 @@ Template.featureGrid.onRendered(->
     dots = canvas.selectAll(".dot")
       .data(posts)
 
+
     g = dots.enter().append("g")
-      .attr("class", "dot")
+      .attr("class", (d) ->
+        if d.featureIdx == selectedIdx then "dot selected" else "dot"
+      )
       .attr("transform", (d) -> "translate(#{width-xScale(xValue(d))}, #{height-yScale(yValue(d))})")
     g.append("circle")
+      .attr("data-idx", (d) -> d.featureIdx)
       .attr("r", 20)
       .style("filter", "url(#drop-shadow)")
 
@@ -178,6 +184,9 @@ Template.featureGrid.onRendered(->
       .attr("cx", (d) -> width-xScale(xValue(d)))
       .attr("cy", (d) -> height-yScale(yValue(d)))
     dots.transition().duration(1000)
+      .attr("class", (d) ->
+        if d.featureIdx == selectedIdx then "dot selected" else "dot"
+      )
       .attr("transform", (d) -> "translate(#{width-xScale(xValue(d))}, #{height-yScale(yValue(d))})")
 
     dots.exit().transition()
@@ -201,6 +210,7 @@ Template.featureGrid.onRendered(->
 )
 
 _features = _.map(_.range(10), (idx) ->
+  featureIdx: idx
   title: "Long long #{idx}"
   cost: _.random(0, 5)
   benefit: _.random(0, 5)
@@ -209,5 +219,6 @@ _features = _.map(_.range(10), (idx) ->
 Fixtures.addFixture("featureGrid", ""
   Loading: {}
   Normal:
+    selectedIdx: 1
     features: _features
 )

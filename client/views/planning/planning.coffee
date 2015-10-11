@@ -8,7 +8,7 @@ _features = ->
   isBuilder = _isBuilder()
   features = _.map(posts, (p, idx) -> {
     _id: p._id
-    featureIdx: idx+1
+    featureIdx: idx
     featureCount: _.size(posts)
     featureName: p.title
     cost: p.aggregateCost or 1
@@ -25,10 +25,18 @@ _terms = ->
     terms.view = Settings.get('defaultView', 'top')
 
 Template.planning.onCreated(->
+  @selectedIdx = new ReactiveVar(0)
   Telescope.subsManager.subscribe("postsList", _terms())
   Telescope.subsManager.subscribe("iq_releases")
 )
-
+Template.planning.events(
+  "click .dot circle": (event, template) ->
+    newIndex = parseInt($(event.target).attr("data-idx"))
+    Template.instance().selectedIdx.set(newIndex)
+  "slid.bs.carousel": (event, template) ->
+    newIndex = $(event.relatedTarget).index()
+    Template.instance().selectedIdx.set(newIndex)
+)
 Template.planning.helpers(
   _ready: ->
     Telescope.subsManager.ready()
@@ -39,14 +47,16 @@ Template.planning.helpers(
 
   _isPlanning: ->
     release = IQ.Releases.findOne({state: IQ.Releases.STATE.PLANNING})
-    release[IQ.Releases.STATE.PLANNING].start < new Date()
+    release?[IQ.Releases.STATE.PLANNING].start < new Date()
 
   _isBuilding: -> IQ.Releases.find({state: IQ.Releases.STATE.BUILDING}).count() > 0
 
   _isBuilder: -> _isBuilder()
 
   _featureData: ->
-    features: _features()
+    data =
+      selectedIdx: Template.instance().selectedIdx.get()
+      features: _features()
 
   _buildFormData: ->
     # FIXME: should choose the exact one that the user is looking at
@@ -65,8 +75,7 @@ Template.planning.helpers(
 
   _cardsData: ->
     features = _features()
-    console.log "features", features
     data =
-      selected: 0
+      selectedIdx: Template.instance().selectedIdx.get()
       pokerCards: features
 )
