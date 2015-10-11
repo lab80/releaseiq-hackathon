@@ -10,7 +10,7 @@ _features = ->
     featureIdx: idx
     featureCount: _.size(posts)
     featureName: p.title
-    cost: p.aggregateCost or 1
+    cost: p.aggregateCost or 5
     benefit: p.aggregateBenefit or 1
     isBuilder: isBuilder
   })

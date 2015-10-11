@@ -45,7 +45,7 @@ Template.featureGrid.onRendered(->
   $chart = self.$('.js-feature-grid')
   $chart.empty()
 
-  console.log "chartHeight", $chart.height()
+  # console.log "chartHeight", $chart.height()
 
   #debugger  a
   chart = d3.select($chart.get(0))
@@ -153,16 +153,11 @@ Template.featureGrid.onRendered(->
       .domain([1, 5])
       .range([0, height])
 
-    console.log "xs", width, _.map(posts, xValue)
-    console.log "ys", height, _.map(posts, yValue)
-
-    # console.log "posts", posts
-    # console.log "xScale", [d3.min(posts, xValue), d3.max(posts, xValue)], width
-    # console.log "yScale", [d3.min(posts, yValue), d3.max(posts, yValue)], height
+    # console.log "xs", width, _.map(posts, xValue)
+    # console.log "ys", height, _.map(posts, yValue)
 
     dots = canvas.selectAll(".dot")
       .data(posts)
-
 
     g = dots.enter().append("g")
       .attr("class", (d) ->
