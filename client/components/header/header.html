@@ -14,9 +14,9 @@
         </div>
       </a>
       <ul class="nav desktop-nav header-page-nav">
-        <li><a class="nav-text" href="/backlog">backlog</a></li>
-        <li><a class="nav-text" href="/planning">planning</a></li>
-        <li><a class="nav-text" href="/releases">releases</a></li>
+        <li><a class="nav-text {{_getActive "backlog"}}" href="/backlog">backlog</a></li>
+        <li><a class="nav-text {{_getActive "planning"}}" href="/planning">planning</a></li>
+        <li><a class="nav-text {{_getActive "releases"}}" href="/releases">releases</a></li>
       </ul>
 
       {{#if hasSecondaryNav}}
