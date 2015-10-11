@@ -1,12 +1,12 @@
 <template name="buildReleaseForm">
   <form class="build-release-form-container" id="build-release-form">
     <div class="form-group">
-      <label class="thick">Participants</label>
-      <div class="sublabel">{{userCount}} users and {{builderCount}} builders in {{_duration}}.</div>
+      <h2 class="page-h2">Participants</h2>
+      <p class="page-text">{{userCount}} users and {{builderCount}} builders in {{_duration}}.</p>
     </div>
     <div class="form-group">
-      <label class="thick">Cost/Benefit Analysis</label>
-      <div class="sublabel">Pick features for {{name}} release below.</div>
+      <h2 class="page-h2">Cost/Benefit Analysis</h2>
+      <p class="page-text">Pick features for FIXME{{name}} release below.</p>
     </div>
 
     <div class="features-for-release">
@@ -28,25 +28,13 @@
 
     </div>
 
-    <div class="narrow-form-groups">
-      <!-- <div class="form-group">
-        <label>Build Start Date</label>
-        <input id="start-time" type="text" class="form-control input-lg">
-      </div>
-
-      <div class="form-group">
-        <label>Launch Date</label>
-        <input id="end-time" type="text" class="form-control input-lg">
-      </div> -->
-
-      <div class="form-group">
-        <label>Announcement Text</label>
-        <textarea id="description" form="build-release-form" class="form-control input-lg new-release-desc" rows="3"></textarea>
-      </div>
+    <div class="form-group build-announcement-text">
+      <label>Announcement Text</label>
+      <textarea id="description" form="build-release-form" class="form-control input-lg new-release-desc" rows="3"></textarea>
     </div>
 
     <button type="submit" class="btn btn-outline-blue btn-lg submit-build-release">
-      Start {{name}}
+      Start FIXME{{name}}
     </button>
   </form>
 </template>
@@ -54,7 +42,7 @@
 <template name="buildFeatureRow">
   <div class="feature-row">
     <div class="feature-name">
-      <input type="checkbox" name={{featureName}} id={{_id}} />
+      <input type="checkbox" name={{featureName}} id={{_id}} class="build-feature-check-box"/>
       {{featureName}}
     </div>
     <div class="feature-cost"><span class="mobile">Cost:&nbsp;</span>{{cost}}</div>
