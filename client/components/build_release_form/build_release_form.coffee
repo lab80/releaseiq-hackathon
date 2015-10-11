@@ -1,7 +1,7 @@
-Template.buildReleaseForm.onRendered(->
-  _startPicker = new Pikaday({ field: $('#start-time')[0] })
-  _endPicker = new Pikaday({ field: $('#end-time')[0] })
-)
+# Template.buildReleaseForm.onRendered(->
+#   _startPicker = new Pikaday({ field: $('#start-time')[0] })
+#   _endPicker = new Pikaday({ field: $('#end-time')[0] })
+# )
 
 Template.buildReleaseForm.helpers(
   _duration: -> "24 hours" #FIXME
@@ -17,10 +17,12 @@ Template.buildReleaseForm.events(
     formData =
       releaseId: template.data.releaseId
       desc: template.$("#description").val()
-      startTime: new Date(template.$("#start-time").val())
-      endTime: new Date(template.$("#end-time").val())
+      startTime: moment().subtract(1, "min").toDate()
+      endTime: moment().add(7, "day").toDate()
       numCandidates: template.$("#num-candidates").val()
       features: featureIds
+
+    console.log "formData", formData
 
     Meteor.call("startBuilding", formData)
 )

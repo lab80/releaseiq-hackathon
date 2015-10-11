@@ -1,7 +1,7 @@
-Template.newRelease.onRendered(->
-  _startPicker = new Pikaday({ field: $('#start-time')[0] });
-  _endPicker = new Pikaday({ field: $('#end-time')[0] });
-)
+# Template.newRelease.onRendered(->
+#   _startPicker = new Pikaday({ field: $('#start-time')[0] });
+#   _endPicker = new Pikaday({ field: $('#end-time')[0] });
+# )
 
 Template.newRelease.events(
   "submit #new-release-form": (event, template) ->
@@ -9,8 +9,8 @@ Template.newRelease.events(
     formData =
       name: template.$("#release-name").val()
       desc: template.$("#description").val()
-      startTime: new Date(template.$("#start-time").val())
-      endTime: new Date(template.$("#end-time").val())
+      startTime: moment().subtract(1, "min").toDate()
+      endTime: moment().add(1, "day").toDate()
       numCandidates: template.$("#num-candidates").val()
 
     Meteor.call("createRelease", formData)

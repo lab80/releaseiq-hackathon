@@ -42,7 +42,7 @@ Meteor.methods(
 
     return IQ.Releases.update(formData.releaseId,
       $set:
-        state: IQ.Releases.BUILDING
+        state: IQ.Releases.STATE.BUILDING
         build: buildPhase
     )
 )

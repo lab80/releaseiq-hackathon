@@ -73,9 +73,9 @@ Template.planningWrapper.helpers(
   _buildReleaseFormData: ->
     # FIXME: should choose the exact one that the user is looking at
 
-    buildingRelease = IQ.Releases.findOne({state: IQ.Releases.STATE.BUILDING})
+    planningRelease = IQ.Releases.findOne({state: IQ.Releases.STATE.PLANNING})
     data =
-      releaseId: buildingRelease._id
+      releaseId: planningRelease._id
       userCount: 72
       builderCount: 18
       planning:
